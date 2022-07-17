@@ -3,11 +3,11 @@
   <title>dwxa</title>
   
   
-  <link href="https://dwxa.github.io/project/atom.xml" rel="self"/>
+  <link href="https://dwxa.github.io/atom.xml" rel="self"/>
   
-  <link href="https://dwxa.github.io/project/"/>
+  <link href="https://dwxa.github.io/"/>
   <updated>2022-07-15T08:05:09.665Z</updated>
-  <id>https://dwxa.github.io/project/</id>
+  <id>https://dwxa.github.io/</id>
   
   <author>
     <name>dwxa</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://dwxa.github.io/project/2022/07/15/hello-world/"/>
-    <id>https://dwxa.github.io/project/2022/07/15/hello-world/</id>
+    <link href="https://dwxa.github.io/2022/07/15/hello-world/"/>
+    <id>https://dwxa.github.io/2022/07/15/hello-world/</id>
     <published>2022-07-15T08:05:09.665Z</published>
     <updated>2022-07-15T08:05:09.665Z</updated>
     
