@@ -19,14 +19,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>HQL性能调优</title>
     <url>/2022/07/17/hql%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</url>
-    <content><![CDATA[<p>​—<br>title: HQL性能调优<br>date: 2022-07-17 21:31:50<br>tags:</p>
-<ul>
-<li>HIVE</li>
-<li>SQL<br>categories:</li>
-<li>HIVE<br>​—<h1 id="HQL性能调优"><a href="#HQL性能调优" class="headerlink" title="HQL性能调优"></a>HQL性能调优</h1><h2 id="hive简介"><a href="#hive简介" class="headerlink" title="hive简介"></a>hive简介</h2>Hive是基于Hadoop的数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单sql查询功能，可以将sql语句转换为MapReduce任务进行运行。<br>sql命令-&gt;HIVE处理，转换为MapReduce-&gt;提交任务到Hadoop,HDFS,MapReduce运行</li>
-</ul>
+    <content><![CDATA[<h1 id="HQL性能调优"><a href="#HQL性能调优" class="headerlink" title="HQL性能调优"></a>HQL性能调优</h1><h2 id="hive简介"><a href="#hive简介" class="headerlink" title="hive简介"></a>hive简介</h2><p>Hive是基于Hadoop的数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单sql查询功能，可以将sql语句转换为MapReduce任务进行运行。<br>sql命令-&gt;HIVE处理，转换为MapReduce-&gt;提交任务到Hadoop,HDFS,MapReduce运行</p>
 <h2 id="hive-ddl"><a href="#hive-ddl" class="headerlink" title="hive-ddl"></a>hive-ddl</h2><h3 id="hive建表（压缩表和非压缩表）"><a href="#hive建表（压缩表和非压缩表）" class="headerlink" title="hive建表（压缩表和非压缩表）"></a>hive建表（压缩表和非压缩表）</h3><p>一个表有一个或多个分区，每个分区以文件夹的形式单独存放在表文件夹的目录下</p>
 <p>创建表，指定EXTERNAL是外部表，没有指定内部表，内部表在drop时会从HDFS上删除数据，外部表不会删除。</p>
 <p>如果不指定数据库，hive把表创建在default数据库下</p>
@@ -42,5 +37,12 @@
 <p><code>explain dependency</code>语法获取扫描的分区<br>**3、利用hive优化机制减少job数 **<br>三个以上表关联时，如果join的key相同，都会合并成一个mapreduce任务</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select a.val,b.val,c.val</span><br><span class="line">from a join b on(a.key=b.key1)</span><br><span class="line">join c on (c.key=b.key1)</span><br><span class="line">#优化为一个job</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>HIVE</category>
+      </categories>
+      <tags>
+        <tag>HIVE</tag>
+        <tag>SQL</tag>
+      </tags>
   </entry>
 </search>
