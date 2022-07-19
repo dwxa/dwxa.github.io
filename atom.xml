@@ -6,7 +6,7 @@
   <link href="https://dwxa.github.io/atom.xml" rel="self"/>
   
   <link href="https://dwxa.github.io/"/>
-  <updated>2022-07-17T15:07:54.735Z</updated>
+  <updated>2022-07-19T09:04:18.136Z</updated>
   <id>https://dwxa.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>cs229n</title>
+    <link href="https://dwxa.github.io/2022/07/19/cs229n/"/>
+    <id>https://dwxa.github.io/2022/07/19/cs229n/</id>
+    <published>2022-07-19T09:00:11.000Z</published>
+    <updated>2022-07-19T09:04:18.136Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CS229n（1）——线性回归"><a href="#CS229n（1）——线性回归" class="headerlink" title="CS229n（1）——线性回归"></a>CS229n（1）——线性回归</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;CS229n（1）——线性回归&quot;&gt;&lt;a href=&quot;#CS229n（1）——线性回归&quot; class=&quot;headerlink&quot; title=&quot;CS229n（1）——线性回归&quot;&gt;&lt;/a&gt;CS229n（1）——线性回归&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    <category term="机器学习" scheme="https://dwxa.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>HQL性能调优</title>
     <link href="https://dwxa.github.io/2022/07/17/hql%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/"/>
     <id>https://dwxa.github.io/2022/07/17/hql%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</id>
-    <published>2022-07-17T13:31:50.000Z</published>
-    <updated>2022-07-17T15:07:54.735Z</updated>
+    <published>2022-07-17T13:31:50.871Z</published>
+    <updated>2022-07-17T15:09:15.510Z</updated>
     
     <content type="html"><![CDATA[<h1 id="HQL性能调优"><a href="#HQL性能调优" class="headerlink" title="HQL性能调优"></a>HQL性能调优</h1><h2 id="hive简介"><a href="#hive简介" class="headerlink" title="hive简介"></a>hive简介</h2><p>Hive是基于Hadoop的数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单sql查询功能，可以将sql语句转换为MapReduce任务进行运行。<br>sql命令-&gt;HIVE处理，转换为MapReduce-&gt;提交任务到Hadoop,HDFS,MapReduce运行</p><h2 id="hive-ddl"><a href="#hive-ddl" class="headerlink" title="hive-ddl"></a>hive-ddl</h2><h3 id="hive建表（压缩表和非压缩表）"><a href="#hive建表（压缩表和非压缩表）" class="headerlink" title="hive建表（压缩表和非压缩表）"></a>hive建表（压缩表和非压缩表）</h3><p>一个表有一个或多个分区，每个分区以文件夹的形式单独存放在表文件夹的目录下</p><p>创建表，指定EXTERNAL是外部表，没有指定内部表，内部表在drop时会从HDFS上删除数据，外部表不会删除。</p><p>如果不指定数据库，hive把表创建在default数据库下</p><p>内部表：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> login(</span><br><span class="line">userid <span class="type">bigint</span>,</span><br><span class="line">ip string</span><br><span class="line"><span class="type">time</span> <span class="type">bigint</span>)</span><br><span class="line"><span class="keyword">partition</span> <span class="keyword">by</span>(dt string)</span><br><span class="line"><span class="type">row</span> format delimited</span><br><span class="line">fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span></span><br><span class="line">stored <span class="keyword">as</span> textfile;</span><br></pre></td></tr></table></figure><p>外部表</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location</span><br></pre></td></tr></table></figure><h2 id="hive-dml"><a href="#hive-dml" class="headerlink" title="hive-dml"></a>hive-dml</h2><h3 id="hive优化的根本思想"><a href="#hive优化的根本思想" class="headerlink" title="hive优化的根本思想"></a>hive优化的根本思想</h3><p>尽早过滤数据，减少每个阶段的数据量<br>减少job数<br>解决数据倾斜问题</p><h3 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h3><p><strong>1、列裁剪</strong><br>只选择需要的字段<br><strong>2、分区裁剪</strong><br>查询过程中减少不必要的分区</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(orderid)</span><br><span class="line"><span class="keyword">from</span> order_table</span><br><span class="line"><span class="keyword">where</span> to_date(sale_time)<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span></span><br><span class="line"><span class="keyword">hour</span>(to_date(sale_time))<span class="operator">=</span><span class="number">10</span></span><br></pre></td></tr></table></figure><p>改为</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(orderid)</span><br><span class="line"><span class="keyword">from</span> order_table</span><br><span class="line"><span class="keyword">where</span> dt<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span> to_date(sale_time)<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span></span><br><span class="line"><span class="keyword">hour</span>(to_date(sale_time))<span class="operator">=</span><span class="number">10</span></span><br></pre></td></tr></table></figure><p><code>explain dependency</code>语法获取扫描的分区<br>**3、利用hive优化机制减少job数 **<br>三个以上表关联时，如果join的key相同，都会合并成一个mapreduce任务</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select a.val,b.val,c.val</span><br><span class="line">from a join b on(a.key=b.key1)</span><br><span class="line">join c on (c.key=b.key1)</span><br><span class="line">#优化为一个job</span><br></pre></td></tr></table></figure>]]></content>
     
