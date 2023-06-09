@@ -293,11 +293,6 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2023/04/04/mapreduce/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>在谷歌云平台搭建kubernetes</title>
     <url>/2023/03/15/k8s/</url>
     <content><![CDATA[<p>kubernetes是一个可扩展的管理容器化服务的平台，本文将演示如何在谷歌云平台搭建k8s</p>
@@ -395,6 +390,11 @@
   </entry>
   <entry>
     <title></title>
+    <url>/2023/04/04/mapreduce/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
     <url>/2022/10/29/pca/</url>
     <content><![CDATA[]]></content>
   </entry>
@@ -443,17 +443,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>数据探索性分析（EDA）</title>
-    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
-    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
-<span id="more"></span>
-
-<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
-      <categories>
-        <category>数据科学</category>
-      </categories>
-  </entry>
-  <entry>
     <title>常见机器学习算法sklearn实现demo</title>
     <url>/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0demo/</url>
     <content><![CDATA[<p>导入相关的库</p>
@@ -481,6 +470,17 @@
     <title></title>
     <url>/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>数据探索性分析（EDA）</title>
+    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
+    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
+<span id="more"></span>
+
+<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
+      <categories>
+        <category>数据科学</category>
+      </categories>
   </entry>
   <entry>
     <title>逻辑回归</title>
