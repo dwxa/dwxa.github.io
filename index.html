@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dwxa.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="dwxa">
+<meta property="og:url" content="https://dwxa.github.io/index.html">
+<meta property="og:site_name" content="dwxa">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="dwxa">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dwxa.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>dwxa</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="dwxa" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dwxa</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/dwxa" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2023/04/04/mapreduce/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/04/04/mapreduce/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-04-04 19:29:17 / 修改时间：19:29:24" itemprop="dateCreated datePublished" datetime="2023-04-04T19:29:17+08:00">2023-04-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2023/03/15/k8s/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/15/k8s/" class="post-title-link" itemprop="url">在谷歌云平台搭建kubernetes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-15 21:23:12" itemprop="dateCreated datePublished" datetime="2023-03-15T21:23:12+08:00">2023-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-09 11:58:33" itemprop="dateModified" datetime="2023-06-09T11:58:33+08:00">2023-06-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kubernetes/" itemprop="url" rel="index"><span itemprop="name">kubernetes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>kubernetes是一个可扩展的管理容器化服务的平台，本文将演示如何在谷歌云平台搭建k8s</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/15/k8s/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2023/02/07/raft/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/02/07/raft/" class="post-title-link" itemprop="url">raft</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-02-07 19:32:28" itemprop="dateCreated datePublished" datetime="2023-02-07T19:32:28+08:00">2023-02-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2023/01/20/Untitled%201/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/20/Untitled%201/" class="post-title-link" itemprop="url">在云服务器上安装hadoop</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-01-20 01:34:03" itemprop="dateCreated datePublished" datetime="2023-01-20T01:34:03+08:00">2023-01-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-05-16 16:08:54" itemprop="dateModified" datetime="2023-05-16T16:08:54+08:00">2023-05-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Secure-Virtual-Machine-Setup"><a href="#Secure-Virtual-Machine-Setup" class="headerlink" title="Secure Virtual Machine Setup"></a>Secure Virtual Machine Setup</h2><h3 id="set-up-a-virtual-machine"><a href="#set-up-a-virtual-machine" class="headerlink" title="set up a virtual machine"></a>set up a virtual machine</h3><p>Use google cloud-&gt;compute engine-&gt;virtual machine instance set up a virtual</p>
+<p>Machine info: n2-standard-2 Intel Cascade Lake 100GB</p>
+<p>System: Ubuntu-18.04 </p>
+<p>![截屏2023-01-20 下午10.26.13](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Documents&#x2F;截屏2023-01-20 下午10.26.13.png)</p>
+<h3 id="set-up-a-firewall"><a href="#set-up-a-firewall" class="headerlink" title="set up a firewall"></a>set up a firewall</h3><p>Use VPC-&gt;firevall set a firewall set the source ip to ‘137.189.0.0&#x2F;16’, that only CUHK can access to the vm.</p>
+<p>![截屏2023-01-20 下午10.35.29](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-20 下午10.35.29.png)</p>
+<h3 id="set-up-a-SSH-1"><a href="#set-up-a-SSH-1" class="headerlink" title="set up a SSH^[1]^"></a>set up a SSH^[1]^</h3><p>Generate a key pair at local machine</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -f id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>upload the public-key to the VM, and use the secret key to access to the VM.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shiyuzhuo@LoBP key % ssh -i id_rsa shiyuzhuo@34.92.6.155 </span><br></pre></td></tr></table></figure>
+
+<h1 id="Hadoop-Cluster-Setup"><a href="#Hadoop-Cluster-Setup" class="headerlink" title="Hadoop Cluster Setup"></a>Hadoop Cluster Setup</h1><h2 id="Single-node-Hadoop-Setup"><a href="#Single-node-Hadoop-Setup" class="headerlink" title="Single-node Hadoop Setup"></a>Single-node Hadoop Setup</h2><h3 id="add-a-Hadoop-user"><a href="#add-a-Hadoop-user" class="headerlink" title="add a Hadoop user"></a>add a Hadoop user</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shiyuzhuo@singlenode:~$ sudo useradd -m hadoop -s /bin/bash</span><br><span class="line">shiyuzhuo@singlenode:~$ sudo passwd hadoop</span><br><span class="line">shiyuzhuo@singlenode:~$ sudo adduser hadoop sudo</span><br><span class="line">shiyuzhuo@singlenode:~$ su hadoop</span><br></pre></td></tr></table></figure>
+
+<h3 id="insatll-SSH"><a href="#insatll-SSH" class="headerlink" title="insatll SSH"></a>insatll SSH</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:~$ sudo apt-get install openssh-server</span><br><span class="line">hadoop@singlenode:~$ ssh localhost</span><br><span class="line">hadoop@singlenode:~$ cd ~/.ssh/ </span><br><span class="line">hadoop@singlenode:~/.ssh$ ssh-keygen -t rsa</span><br><span class="line">hadoop@singlenode:~/.ssh$ cat ./id_rsa.pub &gt;&gt; ./authorized_keys</span><br><span class="line">hadoop@singlenode:~/.ssh$ cd ~</span><br><span class="line">hadoop@singlenode:~$ ssh localhost</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="insatll-JAVA"><a href="#insatll-JAVA" class="headerlink" title="insatll JAVA"></a>insatll JAVA</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:~$ sudo apt-get update</span><br><span class="line">hadoop@singlenode:~$ sudo apt-get install openjdk-8-jre</span><br><span class="line">hadoop@singlenode:~$ sudo apt-get install openjdk-8-jdk</span><br><span class="line">hadoop@singlenode:~$ vim ~/.bashrc</span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line">hadoop@singlenode:~$ source  ~/.bashrc</span><br><span class="line">hadoop@singlenode:~$ java -version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="install-hadoop"><a href="#install-hadoop" class="headerlink" title="install hadoop"></a>install hadoop</h3><p>Download Hadoop and give the user Hadoop permission</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:~$ wget https://archive.apache.org/dist/hadoop/core/hadoop-2.9.2/hadoop-2.9.2.tar.gz</span><br><span class="line">hadoop@singlenode:~$ sudo tar -zxf hadoop-2.9.2.tar.gz -C /usr/local</span><br><span class="line">hadoop@singlenode:~$ cd /usr/local</span><br><span class="line">hadoop@singlenode:/usr/local$ sudo mv ./hadoop-2.9.2 ./hadoop</span><br><span class="line">hadoop@singlenode:/usr/local$ sudo chown -R hadoop ./hadoop</span><br></pre></td></tr></table></figure>
+
+<p>add Java path and launch the Hadoop service</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:/usr/local$ cd hadoop</span><br><span class="line">hadoop@singlenode:/usr/local/hadoop$ sudo vi etc/hadoop/hadoop-env.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">set</span> to the root of your Java installation</span></span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line">hadoop@singlenode:/usr/local/hadoop$ bin/hadoop</span><br></pre></td></tr></table></figure>
+
+<p>set up a single-node Hadoop cluster in a pseudo-distributed mode,change the configuration^[3]^</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:/usr/local/hadoop$ sudo vi ./etc/hadoop/core-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line">hadoop@singlenode:/usr/local/hadoop$ sudo vi ./etc/hadoop/hdfs-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>configure the environment</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:~$ sudo vi /home/hadoop/.bashrc</span><br><span class="line">export HADOOP_PREFIX=/usr/local/hadoop</span><br><span class="line">export HADOOP_HOME=/usr/local/hadoop</span><br><span class="line">export HADOOP_MAPRED_HOME=$&#123;HADOOP_HOME&#125;</span><br><span class="line">export HADOOP_COMMON_HOME=$&#123;HADOOP_HOME&#125;</span><br><span class="line">export HADOOP_HDFS_HOME=$&#123;HADOOP_HOME&#125;</span><br><span class="line">export YARN_HOME=$&#123;HADOOP_HOME&#125;</span><br><span class="line">export HADOOP_CONF_DIR=$&#123;HADOOP_HOME&#125;/etc/hadoop</span><br><span class="line">export HADOOP_COMMON_LIB_NATIVE_DIR=$&#123;HADOOP_PREFIX&#125;/lib/native</span><br><span class="line">export HADOOP_OPTS=&quot;-Djava.library.path=$HADOOP_PREFIX/lib&quot;</span><br><span class="line">export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin</span><br><span class="line">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><span class="line">export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre</span><br><span class="line">export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/bin:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin</span><br></pre></td></tr></table></figure>
+
+<p>Start the service</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:~$ cd /usr/local/hadoop</span><br><span class="line">hadoop@singlenode:/usr/local/hadoop$ ./bin/hdfs namenode -format</span><br><span class="line">hadoop@singlenode:/usr/local/hadoop$ ./sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
+
+<p>use jps check the single node statement</p>
+<h3 id="截屏2023-01-21-上午2-28-19-x2F-Users-x2F-shiyuzhuo-x2F-Library-x2F-Application-Support-x2F-typora-user-images-x2F-截屏2023-01-21-上午2-28-19-png"><a href="#截屏2023-01-21-上午2-28-19-x2F-Users-x2F-shiyuzhuo-x2F-Library-x2F-Application-Support-x2F-typora-user-images-x2F-截屏2023-01-21-上午2-28-19-png" class="headerlink" title="![截屏2023-01-21 上午2.28.19](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午2.28.19.png)"></a>![截屏2023-01-21 上午2.28.19](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午2.28.19.png)</h3><p>visit 34.92.6.155:50070 to access to the hadoop webpage</p>
+<p>![3481674134925_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3481674134925_.pic_hd.jpg)</p>
+<p>![3491674134925_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3491674134925_.pic_hd.jpg)</p>
+<p>The signle node hadoop setup successfully</p>
+<h3 id="run-the-Terasort-example-4"><a href="#run-the-Terasort-example-4" class="headerlink" title="run the Terasort example^[4]^"></a>run the Terasort example^[4]^</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop@singlenode:/usr/local/hadoop$  ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar teragen 100000 terasort/input</span><br><span class="line">hadoop@singlenode:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar terasort terasort/input terasort/output</span><br><span class="line">hadoop@singlenode:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar teravalidate terasort/output terasort/check</span><br></pre></td></tr></table></figure>
+
+<p>![3501674135120_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3501674135120_.pic_hd.jpg)</p>
+<p>![3511674135154_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3511674135154_.pic_hd.jpg)</p>
+<p>![3521674135172_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3521674135172_.pic_hd.jpg)</p>
+<p>![3541674135210_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3541674135210_.pic_hd.jpg)</p>
+<h2 id="Multi-node-Hadoop-Cluster-Setup"><a href="#Multi-node-Hadoop-Cluster-Setup" class="headerlink" title="Multi-node Hadoop Cluster Setup"></a>Multi-node Hadoop Cluster Setup</h2><h3 id="set-up-4-instance-on-the-cloud-VM"><a href="#set-up-4-instance-on-the-cloud-VM" class="headerlink" title="set up 4 instance on the cloud VM"></a>set up 4 instance on the cloud VM</h3><p>One is master and the other are slave1,slave2 and slave3. All of them have the same settings</p>
+<h2 id="截屏2023-01-21-上午2-40-56-x2F-Users-x2F-shiyuzhuo-x2F-Library-x2F-Application-Support-x2F-typora-user-images-x2F-截屏2023-01-21-上午2-40-56-png"><a href="#截屏2023-01-21-上午2-40-56-x2F-Users-x2F-shiyuzhuo-x2F-Library-x2F-Application-Support-x2F-typora-user-images-x2F-截屏2023-01-21-上午2-40-56-png" class="headerlink" title="![截屏2023-01-21 上午2.40.56](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午2.40.56.png)"></a>![截屏2023-01-21 上午2.40.56](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午2.40.56.png)</h2><p>Set up a hadoop user and modify the SSH configure</p>
+<figure class="highlight shell"><figcaption><span>l</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shiyuzhuo@master:~$ sudo -i</span><br><span class="line">root@master:~# adduser hadoop</span><br><span class="line">root@master:~# vi /etc/ssh/sshd_config</span><br><span class="line">root@master:~# service sshd restart</span><br></pre></td></tr></table></figure>
+
+<p>change the PasswordAuthentication yes</p>
+<p>and the ChallengResponseAuthentication yes</p>
+<h3 id="set-up-SSH-in-the-cluster"><a href="#set-up-SSH-in-the-cluster" class="headerlink" title="set up SSH in the cluster"></a>set up SSH in the cluster</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@master:~# sudo vi /etc/hosts</span><br><span class="line">10.170.0.2 master.asia-east2-a.c.multi-node2.internal master  </span><br><span class="line">10.170.0.3 slave1.asia-east2-a.c.multi-node2.internal slave1</span><br><span class="line">10.170.0.4 slave2.asia-east2-a.c.multi-node2.internal slave2</span><br><span class="line">10.170.0.5 slave3.asia-east2-a.c.multi-node2.internal slave3</span><br></pre></td></tr></table></figure>
+
+<p>repeat the above commad on the master and 3 slaves.Then generate key pair</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ ssh-keygen -t rsa -P &quot;&quot;</span><br><span class="line">hadoop@master:~$ cat ./.ssh/id_rsa.pub &gt;&gt; ./authorized_keys</span><br><span class="line">hadoop@master:~$ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@master</span><br><span class="line">hadoop@master:~$ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@slave1</span><br><span class="line">hadoop@master:~$ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@slave2</span><br><span class="line">hadoop@master:~$ ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@slave3</span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>test if master can use ssh to connect slaves</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ ssh slave1</span><br></pre></td></tr></table></figure>
+
+<p>![截屏2023-01-21 上午3.17.43](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午3.17.43.png)</p>
+<p>successfully set up connections</p>
+<h3 id="install-java-and-hadoop-on-the-master"><a href="#install-java-and-hadoop-on-the-master" class="headerlink" title="install java and hadoop on the master"></a>install java and hadoop on the master</h3><p>Just as the steps in the Q0, install java and hadoop and configure the environment.</p>
+<h3 id="configure-hadoop"><a href="#configure-hadoop" class="headerlink" title="configure hadoop"></a>configure hadoop</h3><p>New the flod of data node and namenode</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ sudo mkdir -p /usr/local/hadoop_store/tmp </span><br><span class="line">hadoop@master:~$ sudo mkdir -p /usr/local/hadoop_store/hdfs/namenode </span><br><span class="line">hadoop@master:~$ sudo mkdir -p /usr/local/hadoop_store/hdfs/datanode </span><br><span class="line">hadoop@master:~$ sudo mkdir -p /usr/local/hadoop_store/hdfs/secondarynamenode </span><br></pre></td></tr></table></figure>
+
+<p>configure the hadoop documents</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:/usr/local/hadoop/etc/hadoop$ vi hdfs-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">    	&lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">    	&lt;value&gt;3&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:/usr/local/hadoop_store/hdfs/namenode&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:/usr/local/hadoop_store/hdfs/datanode&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:/usr/local/hadoop_store/hdfs/secondarynamenode&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.checkpoint.period&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;3600&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line">hadoop@master:/usr/local/hadoop/etc/hadoop$ vi core-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;/usr/local/hadoop_store/tmp&lt;/value&gt;</span><br><span class="line">    	&lt;description&gt;A base for other temporary directories.&lt;/description&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://master:54310&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line">hadoop@master:/usr/local/hadoop/etc/hadoop$ vi mapred-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;master:54311&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line">hadoop@master:/usr/local/hadoop/etc/hadoop$ vi yarn-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;!-- Site specific YARN configuration properties --&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;master&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">     &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line">hadoop@slave1:~$ chown -R hadoop:hadoop /usr/local/hadoop</span><br><span class="line">hadoop@slave1:~$ chown -R hadoop:hadoop /usr/local/hadoop_store</span><br></pre></td></tr></table></figure>
+
+<p>Add the slves to the slave file</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ sudo vi /usr/local/hadoop/etc/hadoop/slaves</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">localhost</span></span><br><span class="line">master</span><br><span class="line">slave1</span><br><span class="line">slave2</span><br><span class="line">slave3</span><br></pre></td></tr></table></figure>
+
+<h3 id="copy-the-document-from-master-to-slaves"><a href="#copy-the-document-from-master-to-slaves" class="headerlink" title="copy the document from master to slaves"></a>copy the document from master to slaves</h3><p>Use SCP copy the hadoop settings to slaves. Firstly install java on the three slaves as the steps in Q0, the copy the hadoop stein’s to slaves</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ scp -r /usr/local/hadoop slave1:/home/hadoop/ </span><br><span class="line">hadoop@master:~$ scp -r /usr/local/hadoop_store slave1:/home/hadoop/</span><br><span class="line">hadoop@master:~$ scp -r /home/hadoop/.bashrc slave1:/home/hadoop/</span><br></pre></td></tr></table></figure>
+
+<p>Repeat the commad 3 times, copy the hadoop to the 3 slaves. Then change the catalog and permission of hadoop on each slaves</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop@slave3:~$ sudo mv /home/hadoop/hadoop /usr/local/</span><br><span class="line">hadoop@slave3:~$ sudo mv /home/hadoop/hadoop_store /usr/local/</span><br><span class="line">hadoop@slave3:~$ chown -R hadoop:hadoop /usr/local/hadoop</span><br><span class="line">hadoop@slave3:~$ chown -R hadoop:hadoop /usr/local/hadoop_store</span><br></pre></td></tr></table></figure>
+
+<h3 id="Start-the-multi-node-hadoop-cluster"><a href="#Start-the-multi-node-hadoop-cluster" class="headerlink" title="Start the multi-node hadoop cluster"></a>Start the multi-node hadoop cluster</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ hadoop namenode -format</span><br><span class="line">hadoop@master:~$ start-dfs.sh</span><br><span class="line">hadoop@master:~$ start-yarn.sh</span><br></pre></td></tr></table></figure>
+
+<p>use ups check the status</p>
+<p>on master</p>
+<p>![截屏2023-01-21 上午3.43.06](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午3.43.06.png)</p>
+<p>On slaves</p>
+<p>![截屏2023-01-21 上午3.43.35](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午3.43.35.png)</p>
+<p>visit the web page</p>
+<p>![3591674217838_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3591674217838_.pic_hd.jpg)</p>
+<p>Successfully start the service.</p>
+<h3 id="generate-2-different-datasets-of-size-2GB-and-20GB-to-serve-as-input-for-the-Terasort-program-Run-the-Terasort-code-again-for-these-different-datasets-and-compare-their-running-time"><a href="#generate-2-different-datasets-of-size-2GB-and-20GB-to-serve-as-input-for-the-Terasort-program-Run-the-Terasort-code-again-for-these-different-datasets-and-compare-their-running-time" class="headerlink" title="generate 2 different datasets of size 2GB and 20GB to serve as input for the Terasort program. Run the Terasort code again for these different datasets and compare their running time."></a>generate 2 different datasets of size 2GB and 20GB to serve as input for the Terasort program. Run the Terasort code again for these different datasets and compare their running time.</h3><p>Just like the steps in a, firstly run the 2GB dataset</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar teragen 20000000 terasort/input2GB </span><br><span class="line">hadoop@master:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar terasort terasort/input2GB terasort/output2GB </span><br><span class="line">hadoop@master:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar teravalidate terasort/output2GB terasort/check2GB </span><br></pre></td></tr></table></figure>
+
+<p>Run the 20GB</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar teragen 200000000 terasort/input20GB </span><br><span class="line">hadoop@master:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar terasort terasort/input2GB terasort/output20GB </span><br><span class="line">hadoop@master:/usr/local/hadoop$ ./bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar teravalidate terasort/output2GB terasort/check20GB </span><br></pre></td></tr></table></figure>
+
+<p>visit the 34.96.212.237:8088 to monitor the runtime</p>
+<p>![截屏2023-01-21 上午3.52.47](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Documents&#x2F;截屏2023-01-21 上午3.52.47.png)</p>
+<p>the 2GB runtime: 131 seconds</p>
+<p>the 20GB runtime:13755 seconds</p>
+<h2 id="Running-the-Python-Code-on-Hadoop"><a href="#Running-the-Python-Code-on-Hadoop" class="headerlink" title="Running the Python Code on Hadoop"></a>Running the Python Code on Hadoop</h2><h3 id="new-the-mapper-py-and-the-reducer-py"><a href="#new-the-mapper-py-and-the-reducer-py" class="headerlink" title="new the mapper.py and the reducer.py"></a>new the mapper.py and the reducer.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;mapper.py&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input comes from STDIN (standard input)</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="comment"># remove leading and trailing whitespace</span></span><br><span class="line">    line = line.strip()</span><br><span class="line">    <span class="comment"># split the line into words</span></span><br><span class="line">    words = line.split()</span><br><span class="line">    <span class="comment"># increase counters</span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> words:</span><br><span class="line">        <span class="comment"># write the results to STDOUT (standard output);</span></span><br><span class="line">        <span class="comment"># what we output here will be the input for the</span></span><br><span class="line">        <span class="comment"># Reduce step, i.e. the input for reducer.py</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># tab-delimited; the trivial word count is 1</span></span><br><span class="line">        <span class="built_in">print</span> (<span class="string">&#x27;%s\t%s&#x27;</span> % (word, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;reducer.py&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> operator <span class="keyword">import</span> itemgetter</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">current_word = <span class="literal">None</span></span><br><span class="line">current_count = <span class="number">0</span></span><br><span class="line">word = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># input comes from STDIN</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    <span class="comment"># remove leading and trailing whitespace</span></span><br><span class="line">    line = line.strip()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># parse the input we got from mapper.py</span></span><br><span class="line">    word, count = line.split(<span class="string">&#x27;\t&#x27;</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># convert count (currently a string) to int</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        count = <span class="built_in">int</span>(count)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="comment"># count was not a number, so silently</span></span><br><span class="line">        <span class="comment"># ignore/discard this line</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># this IF-switch only works because Hadoop sorts map output</span></span><br><span class="line">    <span class="comment"># by key (here: word) before it is passed to the reducer</span></span><br><span class="line">    <span class="keyword">if</span> current_word == word:</span><br><span class="line">        current_count += count</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> current_word:</span><br><span class="line">            <span class="comment"># write result to STDOUT</span></span><br><span class="line">            <span class="built_in">print</span> (<span class="string">&#x27;%s\t%s&#x27;</span> % (current_word, current_count))</span><br><span class="line">        current_count = count</span><br><span class="line">        current_word = word</span><br><span class="line"></span><br><span class="line"><span class="comment"># do not forget to output the last word if needed!</span></span><br><span class="line"><span class="keyword">if</span> current_word == word:</span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&#x27;%s\t%s&#x27;</span> % (current_word, current_count))</span><br></pre></td></tr></table></figure>
+
+<h3 id="download-the-dataset-and-upload-the-dataset-to-the-VM"><a href="#download-the-dataset-and-upload-the-dataset-to-the-VM" class="headerlink" title="download the dataset and upload the dataset to the VM"></a>download the dataset and upload the dataset to the VM</h3><p>download the shakespeare dataset, then upload</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shiyuzhuo@LoBP key3 % scp -i id_rsa /Users/shiyuzhuo/Documents/shakespeare hadoop@34.96.212.237:~</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>upload the data to HDFS</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ hadoop dfs -copyFromLocal /home/hadoop/shakespeare /user/hadoop/shakespeare</span><br></pre></td></tr></table></figure>
+
+<p>start the map reduce </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.9.2.jar -file /home/hduser/mapper.py -mapper /home/hduser/mapper.py -file /home/hduser/reducer.py -reducer /home/hduser/reducer.py -input /user/hduser/shakespeare -output /user/hduser/shakespeare-output</span><br></pre></td></tr></table></figure>
+
+<p>Check the yarn page</p>
+<p>![3651674228851_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3651674228851_.pic_hd.jpg)</p>
+<p>successfully run the map reduce job</p>
+<p>![截屏2023-01-21 上午4.07.03](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午4.07.03.png)</p>
+<p>download the result from HDFS to local to see the output result data</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~/shakespeare-output$ hadoop dfs -copyToLocal /user/hadoop/shakespeare-output3 /home/hadoop</span><br><span class="line">hadoop@master:~/shakespeare-output3$ vi part-00000</span><br></pre></td></tr></table></figure>
+
+<p>The map reduce result</p>
+<p>![3631674228731_.pic_hd](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Containers&#x2F;com.tencent.xinWeChat&#x2F;Data&#x2F;Library&#x2F;Application Support&#x2F;com.tencent.xinWeChat&#x2F;2.0b4.0.9&#x2F;76c0f5853654d28cda7dd416e2727d25&#x2F;Message&#x2F;MessageTemp&#x2F;9e20f478899dc29eb19741386f9343c8&#x2F;Image&#x2F;3631674228731_.pic_hd.jpg)</p>
+<p>Total running time is 54240(ms)</p>
+<h2 id="Compiling-the-Java-WordCount-program-for-MapReduce"><a href="#Compiling-the-Java-WordCount-program-for-MapReduce" class="headerlink" title="Compiling the Java WordCount program for MapReduce"></a>Compiling the Java WordCount program for MapReduce</h2><h3 id="use-“hadoop-classpath”-command-to-get-all-Hadoop-jars"><a href="#use-“hadoop-classpath”-command-to-get-all-Hadoop-jars" class="headerlink" title="use “hadoop classpath” command to get all Hadoop jars."></a>use “hadoop classpath” command to get all Hadoop jars.</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ echo &#x27;export HADOOP_CLASSPATH=$&#123;JAVA_HOME&#125;/lib/tools.jar&#x27; &gt;&gt; /home/hadoop/.bashrc</span><br><span class="line">hadoop@master:~$ source /home/hadoop/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="new-and-save-the-java-file-8"><a href="#new-and-save-the-java-file-8" class="headerlink" title="new and save the .java file^[8]^"></a>new and save the .java file^[8]^</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">hadoop<span class="meta">@master</span>:~$ vi WordCount.java</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCount</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">TokenizerMapper</span></span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;Object, Text, Text, IntWritable&gt;&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(Object key, Text value, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntSumReducer</span> <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text,IntWritable,Text,IntWritable&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">    <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> Job.getInstance(conf, <span class="string">&quot;word count&quot;</span>);</span><br><span class="line">    job.setJarByClass(WordCount.class);</span><br><span class="line">    job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">    job.setCombinerClass(IntSumReducer.class);</span><br><span class="line">    job.setReducerClass(IntSumReducer.class);</span><br><span class="line">    job.setOutputKeyClass(Text.class);</span><br><span class="line">    job.setOutputValueClass(IntWritable.class);</span><br><span class="line">    FileInputFormat.addInputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(args[<span class="number">0</span>]));</span><br><span class="line">    FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(args[<span class="number">1</span>]));</span><br><span class="line">    System.exit(job.waitForCompletion(<span class="literal">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="create-a-jar-and-run-the-jar"><a href="#create-a-jar-and-run-the-jar" class="headerlink" title="create a jar and run the jar"></a>create a jar and run the jar</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop@master:~$ hadoop com.sun.tools.javac.Main WordCount.java</span><br><span class="line">hadoop@master:~$ jar cf wc.jar WordCount*.class</span><br><span class="line">hadoop@master:~$ hadoop jar wc.jar WordCount /user/hadoop/shakespeare /user/hadoop/shakespeare-output-java</span><br></pre></td></tr></table></figure>
+
+<p>![截屏2023-01-21 上午10.58.25](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;截屏2023-01-21 上午10.58.25.png)</p>
+<p>Total running time is 14386(ms), faster than the python program</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2022/12/12/transformer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/12/transformer/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-12 20:37:03 / 修改时间：20:37:11" itemprop="dateCreated datePublished" datetime="2022-12-12T20:37:03+08:00">2022-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2022/12/12/rnn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/12/rnn/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-12 20:36:57 / 修改时间：20:37:03" itemprop="dateCreated datePublished" datetime="2022-12-12T20:36:57+08:00">2022-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2022/12/12/cnn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/12/cnn/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-12 20:36:49 / 修改时间：20:36:55" itemprop="dateCreated datePublished" datetime="2022-12-12T20:36:49+08:00">2022-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-12 20:36:19 / 修改时间：20:36:26" itemprop="dateCreated datePublished" datetime="2022-12-12T20:36:19+08:00">2022-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2022/12/12/raft%E8%AE%BA%E6%96%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/12/raft%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-12 20:36:06 / 修改时间：20:36:17" itemprop="dateCreated datePublished" datetime="2022-12-12T20:36:06+08:00">2022-12-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-10-29 17:24:15 / 修改时间：17:24:27" itemprop="dateCreated datePublished" datetime="2022-10-29T17:24:15+08:00">2022-10-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dwxa"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">dwxa</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dwxa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dwxa.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="读取外部数据123456import numpy as npimport pandas as pd#读取csv，txt，excel文件df &#x3D; pd.read_csv(&amp;#x27;filename.csv&amp;#x27;)df &#x3D; pd.read_table(&amp;#x27;filename.csv&amp;#x27;)df &#x3D; pd.read_excel(&amp;#x27;filename.csv&amp;#x27;) 常见">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas常见使用">
+<meta property="og:url" content="https://dwxa.github.io/2022/08/10/Pandas%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%89%AF%E6%9C%AC/index.html">
+<meta property="og:site_name" content="dwxa">
+<meta property="og:description" content="读取外部数据123456import numpy as npimport pandas as pd#读取csv，txt，excel文件df &#x3D; pd.read_csv(&amp;#x27;filename.csv&amp;#x27;)df &#x3D; pd.read_table(&amp;#x27;filename.csv&amp;#x27;)df &#x3D; pd.read_excel(&amp;#x27;filename.csv&amp;#x27;) 常见">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-10T15:18:16.521Z">
+<meta property="article:modified_time" content="2022-09-23T11:50:56.111Z">
+<meta property="article:author" content="dwxa">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dwxa.github.io/2022/08/10/Pandas%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%89%AF%E6%9C%AC/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Pandas常见使用 | dwxa</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="dwxa" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">dwxa</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/dwxa" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dwxa.github.io/2022/08/10/Pandas%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%89%AF%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="dwxa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="dwxa">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pandas常见使用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-10 23:18:16" itemprop="dateCreated datePublished" datetime="2022-08-10T23:18:16+08:00">2022-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-23 19:50:56" itemprop="dateModified" datetime="2022-09-23T19:50:56+08:00">2022-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="读取外部数据"><a href="#读取外部数据" class="headerlink" title="读取外部数据"></a>读取外部数据</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment">#读取csv，txt，excel文件</span></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br><span class="line">df = pd.read_table(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br><span class="line">df = pd.read_excel(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>常见参数 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;filename.csv&#x27;</span>，header=<span class="literal">None</span>，sep=<span class="string">&#x27;\t&#x27;</span>,index_col=<span class="string">&quot;col1&quot;</span>,usecols=[<span class="string">&quot;col1&quot;</span>,<span class="string">&quot;col2&quot;</span>],nrows=<span class="number">5</span>，dtype=&#123;<span class="string">&quot;col1&quot;</span>:<span class="built_in">str</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>默认header&#x3D;”infer”， header&#x3D;None表示第一行不作为列名，sep指定分隔符，index_col选取某列的值作为索引，usecols仅读取需要的列,nrows为读取数据的行数，dtype设置读取数据时的字段数据类型。</p>
+<h1 id="数据写入文件"><a href="#数据写入文件" class="headerlink" title="数据写入文件"></a>数据写入文件</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.to_csv(<span class="string">&#x27;filename.csv&#x27;</span>,index=<span class="literal">False</span>)</span><br><span class="line">df.to_excel(<span class="string">&#x27;filename.xlsx&#x27;</span>,index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<p>采用to_csv将数据写入csv文件，采用to_excel将数据写入excel文件。index&#x3D;False表示将Dataframe的索引在保存文件时去除。<br>同样也可以使用to_csv将数据保存至txt文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_csv(<span class="string">&#x27;filename.txt&#x27;</span>, sep=<span class="string">&#x27;\t&#x27;</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="Dataframe操作"><a href="#Dataframe操作" class="headerlink" title="Dataframe操作"></a>Dataframe操作</h1><p>Pandas中存储二维数据的数据结构为dataframe，下述几种dataframe类型的基本操作。</p>
+<h2 id="构建dataframe"><a href="#构建dataframe" class="headerlink" title="构建dataframe"></a>构建dataframe</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame([[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>]],columns=[<span class="string">&#x27;col1&#x27;</span>,<span class="string">&#x27;col2&#x27;</span>])</span><br><span class="line"></span><br><span class="line">   col1  col2</span><br><span class="line"><span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span></span><br><span class="line"><span class="number">1</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line"><span class="number">2</span>     <span class="number">5</span>     <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="dataframe索引"><a href="#dataframe索引" class="headerlink" title="dataframe索引"></a>dataframe索引</h2><h3 id="数据列索引"><a href="#数据列索引" class="headerlink" title="数据列索引"></a>数据列索引</h3><p>通过df[‘列名’]可以取出对应的数据列，df[[‘列名1’,’列名2]]可以取出多列的数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&#x27;col1&#x27;</span>]</span><br><span class="line"><span class="number">0</span>    <span class="number">1</span></span><br><span class="line"><span class="number">1</span>    <span class="number">3</span></span><br><span class="line"><span class="number">2</span>    <span class="number">5</span></span><br><span class="line">Name: col1, dtype: int64</span><br><span class="line"></span><br><span class="line">df[[<span class="string">&#x27;col1&#x27;</span>,<span class="string">&#x27;col2&#x27;</span>]]</span><br><span class="line">col1	col2</span><br><span class="line"><span class="number">0</span>	<span class="number">1</span>	<span class="number">2</span></span><br><span class="line"><span class="number">1</span>	<span class="number">3</span>	<span class="number">4</span></span><br><span class="line"><span class="number">2</span>	<span class="number">5</span>	<span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="iloc索引"><a href="#iloc索引" class="headerlink" title="iloc索引"></a>iloc索引</h3><p>iloc所以可以根据行列位置对数据进行切片，返回需要的值。iloc[ : , : ] 行列切片以“，”隔开，前面的冒号是取行数，后面的冒号是取列数(冒号切片左闭右开)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]],columns=[<span class="string">&#x27;col1&#x27;</span>,<span class="string">&#x27;col2&#x27;</span>,<span class="string">&#x27;col3&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;=========================&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">1</span>,<span class="number">1</span>])<span class="comment">#取第二行第二列</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;=========================&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(df.iloc[[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>]])<span class="comment">#取前两行前两列</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;=========================&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">0</span>:<span class="number">2</span>, <span class="number">1</span>:<span class="number">2</span>])<span class="comment">#取第一至二行，第二列</span></span><br><span class="line"></span><br><span class="line">   col1  col2  col3</span><br><span class="line"><span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span></span><br><span class="line"><span class="number">1</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span></span><br><span class="line"><span class="number">2</span>     <span class="number">5</span>     <span class="number">6</span>     <span class="number">7</span></span><br><span class="line">=========================</span><br><span class="line"><span class="number">4</span></span><br><span class="line">=========================</span><br><span class="line">   col1  col2</span><br><span class="line"><span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span></span><br><span class="line"><span class="number">1</span>     <span class="number">3</span>     <span class="number">4</span></span><br><span class="line">=========================</span><br><span class="line">   col2</span><br><span class="line"><span class="number">0</span>     <span class="number">2</span></span><br><span class="line"><span class="number">1</span>     <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h2 id="dataframe分组"><a href="#dataframe分组" class="headerlink" title="dataframe分组"></a>dataframe分组</h2><p>dataframe的分组操作主要依赖groupby函数完成，基本调用方式为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.groupby(<span class="string">&#x27;分组维度&#x27;</span>)[<span class="string">&#x27;分组数据&#x27;</span>].操作()</span><br></pre></td></tr></table></figure>
+<p>主要应用于依据某列分组，统计待分组数据在该列维度下的数据值，如对于房价数据，根据<em>城市</em>分组，统计该在城市的<em>房屋价格</em>最大值。以data2.csv数据集为例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">df=pd.read_csv(<span class="string">&#x27;data2.csv&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;=========================&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(df.groupby(<span class="string">&#x27;name&#x27;</span>)[<span class="string">&#x27;C&#x27;</span>].<span class="built_in">max</span>())<span class="comment">#按name列分组对应的C列的最大值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;=========================&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(df.groupby(<span class="string">&#x27;name&#x27;</span>)[<span class="string">&#x27;B&#x27;</span>].mean())<span class="comment">#按name列分组对应的C列的平均值</span></span><br><span class="line"></span><br><span class="line">   A     B   C    D      name</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80</span>  NaN        HK</span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75</span> -<span class="number">1.0</span>  Shanghai</span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">7.0</span>  <span class="number">75</span>  <span class="number">0.0</span>        HK</span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>  <span class="number">80</span> -<span class="number">1.0</span>   Beijing</span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80</span>  <span class="number">1.0</span>   Beijing</span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>  <span class="number">75</span>  NaN     Macau</span><br><span class="line">=========================</span><br><span class="line">name</span><br><span class="line">Beijing     <span class="number">80</span></span><br><span class="line">HK          <span class="number">80</span></span><br><span class="line">Macau       <span class="number">75</span></span><br><span class="line">Shanghai    <span class="number">75</span></span><br><span class="line">Name: C, dtype: int64</span><br><span class="line">=========================</span><br><span class="line">name</span><br><span class="line">Beijing     <span class="number">6.45</span></span><br><span class="line">HK          <span class="number">8.75</span></span><br><span class="line">Macau       <span class="number">8.30</span></span><br><span class="line">Shanghai    <span class="number">5.60</span></span><br><span class="line">Name: B, dtype: float64</span><br></pre></td></tr></table></figure>
+<h1 id="array和dataframe相互转换"><a href="#array和dataframe相互转换" class="headerlink" title="array和dataframe相互转换"></a>array和dataframe相互转换</h1><p>array转换为dataframe，pd.DataFrame将array类型数据转换为DataFrame，默认列名为0，1…，参数columns设置列名。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data = pd.DataFrame(df.values,columns=<span class="built_in">list</span>(<span class="string">&quot;AB&quot;</span>))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line">   A  B</span><br><span class="line"><span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span></span><br><span class="line"><span class="number">1</span>  <span class="number">3</span>  <span class="number">4</span></span><br><span class="line"><span class="number">2</span>  <span class="number">5</span>  <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>dataframe转换为array，values将dataframe格式数据转换为array对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df.values</span><br><span class="line"></span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">       [<span class="number">5</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
+<h1 id="数据特征统计函数"><a href="#数据特征统计函数" class="headerlink" title="数据特征统计函数"></a>数据特征统计函数</h1><p>info()返回数据表的列，缺失值情况，数据类型等信息，以数据表HousingData.csv为例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&quot;HousingData.csv&quot;</span>)</span><br><span class="line">df.info()</span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;pandas.core.frame.DataFrame&#x27;</span>&gt;</span><br><span class="line">RangeIndex: <span class="number">506</span> entries, <span class="number">0</span> to <span class="number">505</span></span><br><span class="line">Data columns (total <span class="number">14</span> columns):</span><br><span class="line"> <span class="comment">#   Column   Non-Null Count  Dtype  </span></span><br><span class="line">---  ------   --------------  -----  </span><br><span class="line"> <span class="number">0</span>   CRIM     <span class="number">486</span> non-null    float64</span><br><span class="line"> <span class="number">1</span>   ZN       <span class="number">486</span> non-null    float64</span><br><span class="line"> <span class="number">2</span>   INDUS    <span class="number">486</span> non-null    float64</span><br><span class="line"> <span class="number">3</span>   CHAS     <span class="number">486</span> non-null    float64</span><br><span class="line"> <span class="number">4</span>   NOX      <span class="number">506</span> non-null    float64</span><br><span class="line">dtypes: float64(<span class="number">12</span>), int64(<span class="number">2</span>)</span><br><span class="line">memory usage: <span class="number">55.5</span> KB</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>df.describe()返回数据表中每列的的计数，平均值，最大最小值，分位数等统计量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df.describe()</span><br><span class="line"></span><br><span class="line">             CRIM          ZN       INDUS        CHAS         NOX</span><br><span class="line">count  <span class="number">486.000000</span>  <span class="number">486.000000</span>  <span class="number">486.000000</span>  <span class="number">486.000000</span>  <span class="number">506.000000</span></span><br><span class="line">mean     <span class="number">3.611874</span>   <span class="number">11.211934</span>   <span class="number">11.083992</span>    <span class="number">0.069959</span>    <span class="number">0.554695</span></span><br><span class="line">std      <span class="number">8.720192</span>   <span class="number">23.388876</span>    <span class="number">6.835896</span>    <span class="number">0.255340</span>    <span class="number">0.115878</span></span><br><span class="line"><span class="built_in">min</span>      <span class="number">0.006320</span>    <span class="number">0.000000</span>    <span class="number">0.460000</span>    <span class="number">0.000000</span>    <span class="number">0.385000</span></span><br><span class="line"><span class="number">25</span>%      <span class="number">0.081900</span>    <span class="number">0.000000</span>    <span class="number">5.190000</span>    <span class="number">0.000000</span>    <span class="number">0.449000</span></span><br><span class="line"><span class="number">50</span>%      <span class="number">0.253715</span>    <span class="number">0.000000</span>    <span class="number">9.690000</span>    <span class="number">0.000000</span>    <span class="number">0.538000</span></span><br><span class="line"><span class="number">75</span>%      <span class="number">3.560263</span>   <span class="number">12.500000</span>   <span class="number">18.100000</span>    <span class="number">0.000000</span>    <span class="number">0.624000</span></span><br><span class="line"><span class="built_in">max</span>     <span class="number">88.976200</span>  <span class="number">100.000000</span>   <span class="number">27.740000</span>    <span class="number">1.000000</span>    <span class="number">0.871000</span></span><br></pre></td></tr></table></figure>
+<h1 id="唯一值函数"><a href="#唯一值函数" class="headerlink" title="唯一值函数"></a>唯一值函数</h1><p>value_counts()可以统计指定列中的值以及值出现的次数。在下面的例子中统计“name”列中出现的值以及出现值的次数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.read_csv(<span class="string">&quot;data2.csv&quot;</span>)</span><br><span class="line">df2[<span class="string">&#x27;name&#x27;</span>].value_counts()</span><br><span class="line"></span><br><span class="line">HK          <span class="number">2</span></span><br><span class="line">Beijing     <span class="number">2</span></span><br><span class="line">Shanghai    <span class="number">1</span></span><br><span class="line">Macau       <span class="number">1</span></span><br><span class="line">Name: name, dtype: int64</span><br></pre></td></tr></table></figure>
+<h1 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h1><h2 id="查找缺失值"><a href="#查找缺失值" class="headerlink" title="查找缺失值"></a>查找缺失值</h2><p>isnull()判断数据每一列中是否有空值，有则返回True，没有则返回False。isnull().sum()统计每一列中的空值数量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df.isnull().<span class="built_in">sum</span>()</span><br><span class="line">CRIM       <span class="number">20</span></span><br><span class="line">ZN         <span class="number">20</span></span><br><span class="line">INDUS      <span class="number">20</span></span><br><span class="line">CHAS       <span class="number">20</span></span><br><span class="line">NOX         <span class="number">0</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+<h2 id="删除nan值并重置序号"><a href="#删除nan值并重置序号" class="headerlink" title="删除nan值并重置序号"></a>删除nan值并重置序号</h2><p>以文件data.csv为例，展示以下几种缺失值处理方法。读取data.csv可见有多处缺失值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(df1)</span><br><span class="line">A     B     C    D</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80.0</span>  NaN</span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75.0</span> -<span class="number">1.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   NaN  <span class="number">75.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>   NaN -<span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>   NaN  NaN</span><br></pre></td></tr></table></figure>
+<p>dropna()删除所有含空值的行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df1.dropna()</span><br><span class="line"></span><br><span class="line">A	B	C	D</span><br><span class="line"><span class="number">1</span>	<span class="number">4</span>	<span class="number">5.6</span>	<span class="number">75.0</span>	-<span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>	<span class="number">6</span>	<span class="number">3.5</span>	<span class="number">80.0</span>	<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<p>reset_index()对删除空值后的行重置序号,参数drop&#x3D;True删除原来的index。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df1.reset_index(drop=<span class="literal">True</span>)</span><br><span class="line">	A	B	C	D</span><br><span class="line"><span class="number">0</span>	<span class="number">4</span>	<span class="number">5.6</span>	<span class="number">75.0</span>	-<span class="number">1.0</span></span><br><span class="line"><span class="number">1</span>	<span class="number">6</span>	<span class="number">3.5</span>	<span class="number">80.0</span>	<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<h2 id="缺失值填充"><a href="#缺失值填充" class="headerlink" title="缺失值填充"></a>缺失值填充</h2><h3 id="均值填充"><a href="#均值填充" class="headerlink" title="均值填充"></a>均值填充</h3><p>采用df.replace或fillna()将缺失值处替换为均值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#采用replace将D列的缺失值替换为平均值</span></span><br><span class="line">df1.replace(&#123;<span class="string">&#x27;D&#x27;</span>:np.nan&#125;,np.mean(df1[<span class="string">&#x27;D&#x27;</span>]))</span><br><span class="line"></span><br><span class="line">   A     B     C     D</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80.0</span> -<span class="number">0.25</span></span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75.0</span> -<span class="number">1.00</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   NaN  <span class="number">75.0</span>  <span class="number">0.00</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>   NaN -<span class="number">1.00</span></span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80.0</span>  <span class="number">1.00</span></span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>   NaN -<span class="number">0.25</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#采用fillna将D列的缺失值替换为平均值</span></span><br><span class="line">df1[<span class="string">&#x27;D&#x27;</span>].fillna(df1[<span class="string">&#x27;D&#x27;</span>].mean(),inplace=<span class="literal">True</span>)</span><br><span class="line">   A     B     C     D</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80.0</span> -<span class="number">0.25</span></span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75.0</span> -<span class="number">1.00</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   NaN  <span class="number">75.0</span>  <span class="number">0.00</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>   NaN -<span class="number">1.00</span></span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80.0</span>  <span class="number">1.00</span></span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>   NaN -<span class="number">0.25</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他值填充"><a href="#其他值填充" class="headerlink" title="其他值填充"></a>其他值填充</h3><p>用一组数据中出现最多次数的值填充，scipy.stats.mode()统计一组数据中出现次数最多的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> st</span><br><span class="line">mode_val=st.mode(df1[<span class="string">&#x27;D&#x27;</span>])[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">df1.replace(&#123;<span class="string">&#x27;D&#x27;</span>:np.nan&#125;,mode_val)</span><br><span class="line"></span><br><span class="line">   A     B     C    D</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80.0</span> -<span class="number">1.0</span></span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75.0</span> -<span class="number">1.0</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   NaN  <span class="number">75.0</span>  <span class="number">0.0</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>   NaN -<span class="number">1.0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80.0</span>  <span class="number">1.0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>   NaN -<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+<h3 id="回归预测填充"><a href="#回归预测填充" class="headerlink" title="回归预测填充"></a>回归预测填充</h3><p>对于缺失值为连续性数据，数据之间存在依赖关系的值，可以采用根据其他列的数据，带入线性回归等有监督学习方法来估计缺失值的方法进行缺失值填充。示例采用线性回归模型对D列的缺失值进行填充。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.read_csv(<span class="string">&quot;data2.csv&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(df2)</span><br><span class="line"></span><br><span class="line">   A     B   C    D      name</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80</span>  NaN        HK</span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75</span> -<span class="number">1.0</span>  Shanghai</span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">7.0</span>  <span class="number">75</span>  <span class="number">0.0</span>        HK</span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>  <span class="number">80</span> -<span class="number">1.0</span>   Beijing</span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80</span>  <span class="number">1.0</span>   Beijing</span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>  <span class="number">75</span>  NaN     Macau</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model<span class="comment">#导入线性回归工具包</span></span><br><span class="line">df_train = df2.dropna()</span><br><span class="line">x = df_train.drop(columns=[<span class="string">&#x27;D&#x27;</span>,<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">reg = linear_model.LinearRegression()<span class="comment">#训练拟合模型</span></span><br><span class="line">reg.fit(x,df_train[<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line">predict_d = reg.predict(df2.drop(columns=[<span class="string">&#x27;D&#x27;</span>,<span class="string">&#x27;name&#x27;</span>]))<span class="comment">#预测新的D列</span></span><br><span class="line">df2[<span class="string">&#x27;D&#x27;</span>] = predict_d<span class="comment">#回归预测填充后的数据</span></span><br><span class="line"></span><br><span class="line">   A     B   C             D      name</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80</span>  <span class="number">3.193548e+00</span>        HK</span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75</span> -<span class="number">1.000000e+00</span>  Shanghai</span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">7.0</span>  <span class="number">75</span> -<span class="number">7.105427e-15</span>        HK</span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>  <span class="number">80</span> -<span class="number">1.000000e+00</span>   Beijing</span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80</span>  <span class="number">1.000000e+00</span>   Beijing</span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>  <span class="number">75</span>  <span class="number">1.129032e+00</span>     Macau</span><br></pre></td></tr></table></figure>
+<h3 id="hotdeck填充"><a href="#hotdeck填充" class="headerlink" title="hotdeck填充"></a>hotdeck填充</h3><p>将缺失值替换为在一列中随机选择的值。采用ffill方法，将空值填补为上一行中出现的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.fillna(method=<span class="string">&#x27;ffill&#x27;</span>,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="分类标签数值化"><a href="#分类标签数值化" class="headerlink" title="分类标签数值化"></a>分类标签数值化</h1><h2 id="序数编码"><a href="#序数编码" class="headerlink" title="序数编码"></a>序数编码</h2><p>采用cat.codes将非数值标签进行简单序数编码，例如将Beijing编码为0，HK编码为1，Macau编码为2.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df.name = pd.Categorical(df[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">df[<span class="string">&#x27;code&#x27;</span>] = df.name.cat.codes</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"></span><br><span class="line">   A     B   C    D      name  code</span><br><span class="line"><span class="number">0</span>  <span class="number">2</span>  <span class="number">10.5</span>  <span class="number">80</span>  NaN        HK     <span class="number">1</span></span><br><span class="line"><span class="number">1</span>  <span class="number">4</span>   <span class="number">5.6</span>  <span class="number">75</span> -<span class="number">1.0</span>  Shanghai     <span class="number">3</span></span><br><span class="line"><span class="number">2</span>  <span class="number">3</span>   <span class="number">7.0</span>  <span class="number">75</span>  <span class="number">0.0</span>        HK     <span class="number">1</span></span><br><span class="line"><span class="number">3</span>  <span class="number">4</span>   <span class="number">9.4</span>  <span class="number">80</span> -<span class="number">1.0</span>   Beijing     <span class="number">0</span></span><br><span class="line"><span class="number">4</span>  <span class="number">6</span>   <span class="number">3.5</span>  <span class="number">80</span>  <span class="number">1.0</span>   Beijing     <span class="number">0</span></span><br><span class="line"><span class="number">5</span>  <span class="number">2</span>   <span class="number">8.3</span>  <span class="number">75</span>  <span class="number">1.0</span>     Macau     <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="one-hot编码"><a href="#one-hot编码" class="headerlink" title="one-hot编码"></a>one-hot编码</h2><p>one-hot编码将每一个分类类别编码为唯一的二进制向量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pd.get_dummies(df.name)</span><br><span class="line"></span><br><span class="line">   Beijing  HK  Macau  Shanghai</span><br><span class="line"><span class="number">0</span>        <span class="number">0</span>   <span class="number">1</span>      <span class="number">0</span>         <span class="number">0</span></span><br><span class="line"><span class="number">1</span>        <span class="number">0</span>   <span class="number">0</span>      <span class="number">0</span>         <span class="number">1</span></span><br><span class="line"><span class="number">2</span>        <span class="number">0</span>   <span class="number">1</span>      <span class="number">0</span>         <span class="number">0</span></span><br><span class="line"><span class="number">3</span>        <span class="number">1</span>   <span class="number">0</span>      <span class="number">0</span>         <span class="number">0</span></span><br><span class="line"><span class="number">4</span>        <span class="number">1</span>   <span class="number">0</span>      <span class="number">0</span>         <span class="number">0</span></span><br><span class="line"><span class="number">5</span>        <span class="number">0</span>   <span class="number">0</span>      <span class="number">1</span>         <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/27/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="prev" title="逻辑回归">
+      <i class="fa fa-chevron-left"></i> 逻辑回归
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/30/%E6%95%B0%E6%8D%AEEDA/" rel="next" title="数据探索性分析（EDA）">
+      数据探索性分析（EDA） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E5%A4%96%E9%83%A8%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">读取外部数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">数据写入文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dataframe%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">Dataframe操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BAdataframe"><span class="nav-number">3.1.</span> <span class="nav-text">构建dataframe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dataframe%E7%B4%A2%E5%BC%95"><span class="nav-number">3.2.</span> <span class="nav-text">dataframe索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%97%E7%B4%A2%E5%BC%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">数据列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iloc%E7%B4%A2%E5%BC%95"><span class="nav-number">3.2.2.</span> <span class="nav-text">iloc索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dataframe%E5%88%86%E7%BB%84"><span class="nav-number">3.3.</span> <span class="nav-text">dataframe分组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#array%E5%92%8Cdataframe%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="nav-number">4.</span> <span class="nav-text">array和dataframe相互转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%89%B9%E5%BE%81%E7%BB%9F%E8%AE%A1%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">数据特征统计函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">唯一值函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">缺失值处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="nav-number">7.1.</span> <span class="nav-text">查找缺失值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4nan%E5%80%BC%E5%B9%B6%E9%87%8D%E7%BD%AE%E5%BA%8F%E5%8F%B7"><span class="nav-number">7.2.</span> <span class="nav-text">删除nan值并重置序号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A1%AB%E5%85%85"><span class="nav-number">7.3.</span> <span class="nav-text">缺失值填充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E5%80%BC%E5%A1%AB%E5%85%85"><span class="nav-number">7.3.1.</span> <span class="nav-text">均值填充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%80%BC%E5%A1%AB%E5%85%85"><span class="nav-number">7.3.2.</span> <span class="nav-text">其他值填充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E9%A2%84%E6%B5%8B%E5%A1%AB%E5%85%85"><span class="nav-number">7.3.3.</span> <span class="nav-text">回归预测填充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hotdeck%E5%A1%AB%E5%85%85"><span class="nav-number">7.3.4.</span> <span class="nav-text">hotdeck填充</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E6%A0%87%E7%AD%BE%E6%95%B0%E5%80%BC%E5%8C%96"><span class="nav-number">8.</span> <span class="nav-text">分类标签数值化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E6%95%B0%E7%BC%96%E7%A0%81"><span class="nav-number">8.1.</span> <span class="nav-text">序数编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#one-hot%E7%BC%96%E7%A0%81"><span class="nav-number">8.2.</span> <span class="nav-text">one-hot编码</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="dwxa"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">dwxa</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">dwxa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-hijiki"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
