@@ -200,6 +200,42 @@
 ]]></content>
   </entry>
   <entry>
+    <title>AB测试</title>
+    <url>/2023/06/12/abtest/</url>
+    <content><![CDATA[<p>AB测试是为明确某个问题，制作两个（A&#x2F;B）或多个（A&#x2F;B&#x2F;n）版本，在同一时间维度，分别让组成成分相同（相似）的访客群组（目标人群）随机的访问这些版本，收集各群组的用户体验数据和业务数据；最后分析、评估出最好版本，正式采用。</p>
+<span id="more"></span>
+
+<h1 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h1><h2 id="提出需求"><a href="#提出需求" class="headerlink" title="提出需求"></a>提出需求</h2><p>设置实验组，实验组新算法A，对照组原算法B；配置uv分桶，各50%流量，<strong>确定分析目标</strong></p>
+<h2 id="实验开发"><a href="#实验开发" class="headerlink" title="实验开发"></a>实验开发</h2><p>数据埋点；指标集成；用户分流</p>
+<h2 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h2><p>检查错误；确定置信区间</p>
+<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><p>1、时间一致性；</p>
+<p>2、数据分布的一致性；</p>
+<p>3、统计显著的结果才可以引导决策；</p>
+<p>4、实验分组设计上（流量分布要均匀）：</p>
+<p>算法对用户的偏差没有反映到实验分桶上，会放大算法之间效果的差距，从而产生辛普森悖论；</p>
+<p><img src="/2023/06/12/abtest/img1.png"></p>
+<p><img src="/2023/06/12/abtest/img2.png"></p>
+<p> 5、置信</p>
+<p> 要获得一个可信的试验结果需要一定的流量（样本）和时间，如果流量（样本）太小或者分不均匀，试验结果会存在偶然性，可能无法得出可信的结果；试验运行时间太短的话同理；</p>
+<p>6、时间</p>
+<p>实验周期中也要避免外部因素的影响，尽量在平稳时期进行，减少外部因素的干扰；有时候为了保证实验效果的置信，防止小流量分布不均匀，可以在试验过程中，逐步增大流量分配，同时监控关键指标的数据走势，从而得到置信的结论；</p>
+<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>对总体的参数提出假设，利用样本的信息去判断假设是否成立</p>
+<p>原假设：新版本可以提高点击率；备择假设：新版本不能提高点击率</p>
+<p><strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
+<p><img src="/2023/06/12/abtest/img3.png"></p>
+<h2 id="二类错误"><a href="#二类错误" class="headerlink" title="二类错误"></a>二类错误</h2><p>一类错误：弃真，拒绝原假设</p>
+<p>二类错误：取伪，</p>
+<p>弃真：我的实验改动实际没有用，但我认为它有用</p>
+<p>纳伪：我的实验改动实际有用，但我认为它没有用</p>
+<p>在统计学中，我们<strong>用显著性水平（α）来衡量犯第一类错误的概率</strong>，统计功效β来衡量犯第二类错误的概率</p>
+<p>检验统计量：<strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
+<p><img src="/2023/06/12/abtest/img4.png"></p>
+]]></content>
+      <categories>
+        <category>数据分析</category>
+      </categories>
+  </entry>
+  <entry>
     <title></title>
     <url>/2022/12/12/cnn/</url>
     <content><![CDATA[]]></content>
@@ -250,24 +286,6 @@
       <categories>
         <category>机器学习</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/07/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>HQL性能调优</title>
@@ -438,9 +456,33 @@
       </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/</url>
-    <content><![CDATA[]]></content>
+    <title>Hello World</title>
+    <url>/2022/07/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据探索性分析（EDA）</title>
+    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
+    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
+<span id="more"></span>
+
+<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
+      <categories>
+        <category>数据科学</category>
+      </categories>
   </entry>
   <entry>
     <title>常见机器学习算法sklearn实现demo</title>
@@ -468,19 +510,13 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/</url>
+    <url>/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>数据探索性分析（EDA）</title>
-    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
-    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
-<span id="more"></span>
-
-<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
-      <categories>
-        <category>数据科学</category>
-      </categories>
+    <title></title>
+    <url>/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>逻辑回归</title>
