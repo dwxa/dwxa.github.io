@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"dwxa.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="raft">
+  <meta name="description" content="raft是一种管理日志复制的共识算法，其比paxos更加易于理解而且为构建实用的系统提供了更好的基础。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="raft协议理论">
 <meta property="og:url" content="https://dwxa.github.io/2023/02/07/raft/index.html">
 <meta property="og:site_name" content="dwxa">
+<meta property="og:description" content="raft是一种管理日志复制的共识算法，其比paxos更加易于理解而且为构建实用的系统提供了更好的基础。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dwxa.github.io/2023/02/07/raft/img1.png">
 <meta property="article:published_time" content="2023-02-07T11:32:28.000Z">
-<meta property="article:modified_time" content="2023-02-07T11:32:28.281Z">
+<meta property="article:modified_time" content="2023-10-09T16:51:05.703Z">
 <meta property="article:author" content="dwxa">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dwxa.github.io/2023/02/07/raft/img1.png">
 
 <link rel="canonical" href="https://dwxa.github.io/2023/02/07/raft/">
 
@@ -43,7 +47,7 @@
   };
 </script>
 
-  <title>raft | dwxa</title>
+  <title>raft协议理论 | dwxa</title>
   
 
 
@@ -208,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          raft
+          raft协议理论
         </h1>
 
         <div class="post-meta">
@@ -220,6 +224,13 @@
 
               <time title="创建时间：2023-02-07 19:32:28" itemprop="dateCreated datePublished" datetime="2023-02-07T19:32:28+08:00">2023-02-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-10 00:51:05" itemprop="dateModified" datetime="2023-10-10T00:51:05+08:00">2023-10-10</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -239,7 +250,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>raft是一种管理日志复制的共识算法，其比paxos更加易于理解而且为构建实用的系统提供了更好的基础。</p>
+<span id="more"></span>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>为了提高大规模数据的读写性能，有以下两种构想，一是提高机器本身的性能，提高机器的计算能力与存储能力，第二种则是增加机器的数量，以集群的形式处理大规模数据，但是集群内部机器的网络请求行为也会成为集群性能的瓶颈。</p>
+<p>这种分布式系统带来的优势主要体现在能够进行数据备份，避免单节点故障导致的不可用的情况，增加容错，二是多个节点共同执行任务，达到负载均衡的效果。同样，分布式系统也存在一些问题，比如如何保证数据的一致性，与分布式系统的可用性。</p>
+<h2 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h2><p>cap分别代表一致性，可用性与分区容错性。</p>
+<p><img src="img1.png" alt=""></p>
+<p>这三种属性共存的情况不成立，只能三者满足其二。</p>
+<p>C： 一致性，强调正确性，要求整个分布式系统像一个不可拆分的系统，写操作作用于集群像作用于单机一样。</p>
+<p>A：可用性，强调使用的体验，客户端的请求都能得到响应，不发生错误，也没有过长的等待时间。</p>
+<p>P：分区容错性，在网络环境不可靠的情况下，整个系统仍然是正常运作的，不至于出现系统崩溃。</p>
+<p>对于分布式系统，为了保证系统正常运行，P是需要得到保证的。</p>
+<p>CP系统：强调系统数据的正确性，可能会牺牲可用性。</p>
+<p>AP系统：强调系统可用性，会在数据一致性上做妥协。</p>
+<p>一致性与可用性的矛盾在于网络环境的不稳定。而raft算法采取的多数派原则摒弃了一部分的一致性，使得系统得以正常运转。</p>
+<h1 id="分布式共识算法"><a href="#分布式共识算法" class="headerlink" title="分布式共识算法"></a>分布式共识算法</h1><h1 id="领导者选举"><a href="#领导者选举" class="headerlink" title="领导者选举"></a>领导者选举</h1><h1 id="日志复制"><a href="#日志复制" class="headerlink" title="日志复制"></a>日志复制</h1><h2 id="raft新特点"><a href="#raft新特点" class="headerlink" title="raft新特点"></a>raft新特点</h2><p>stronger leader： raft 采用了更加强大的领导者角色，在日志复制时，仅从领导者流向其他服务器</p>
+<p>leader election：raft采用随机的timer来进行leader election，仅通过对心跳增加少量机制就可以快速解决冲突</p>
+<p>成员变化：raft对于更改集群中的服务器的机制使用了新的联合共识方法</p>
+<p>2 复制状态机问题</p>
+<p>3 paxos的优缺点</p>
+<p>4 可理解性的一般方法</p>
+<h2 id="raft共识算法"><a href="#raft共识算法" class="headerlink" title="raft共识算法"></a>raft共识算法</h2><p>raft实现共识的过程为首先选举一名领导者·，然后让领导者全权负责管理日志复制。leader从客户端接收日志，并将日志复制在其他的服务器上，然后告诉服务器合适将日志应用于状态机是安全的。当leader fail时，选出新的leader。raft将这个共识问题分解为三个相对独立的子问题，即<strong>领导者选举，日志复制，选举安全</strong>。</p>
+<p>在raft中每一个服务器都处于以下三种状态，领导人<strong><em>leader</em></strong>，追随者<strong><em>follower</em></strong>，候选人<strong><em>candidate</em></strong>，正常状态下只有一个领导者，负责处理所有来自客户端的请求，追随者不会发出请求，只对领导者和候选人的请求作出回应，如果客户端联系追随者，追随者会重定向到领导者。候选人用于选举领导者。</p>
+<p>raft将时间分成任意长度的<strong><em>term</em></strong>，term由连续数字进行编号。每个term由一次选举开始，在选举中一个或多个候选人竞选，如果一个候选人赢得竞选，那么它在term的剩余时间成为领导者，如果投票没有产生领导者，在这种情况下在term结束时没有领导者，这时候一个新的term会马上开始。raft保证在每个term中最多只有一个领导者。</p>
+<p><strong><em>term</em></strong>在raft中作为一个逻辑时钟，他们允许服务器检测过时的信息，比如过时的领导者，每个服务器都存储着当前term的编号，随着term的增加而变化。当前term在服务器通信时交换。如果一个服务器的当前term编号小于另一个服务器的，这时这个服务器会更新自己的编号。如果候选人或者领导者发现自己的任期已过，则会恢复到低一级的状态，如果服务器接收到过时term的请求，会拒绝该请求。</p>
+<p>raft服务器之间使用rpc进行通信，基本的共识算法采用两种rpc，RequestVote RPCs在候选人选举期间发起，Append-Entries RPCs由领导者发起，来进行日志复制与心跳，</p>
+<h2 id="leader-election"><a href="#leader-election" class="headerlink" title="leader election"></a>leader election</h2><p>raft采用心跳机制<strong><em>heartbeats</em></strong>触发领导者选举。</p>
+<p>服务启动时，所有节点都为追随者，直到节点收到领导者或候选人明确的rpc时都保持追随者状态。领导人向所有追随者发送阶段性的心跳来维护他的地位。如果追随者在一段时间内<strong><em>electiontimeout</em></strong>没有收到来自领导者的信息，那么就会发起一次新的选举。</p>
+<p>开始选举时，追随者增加当前term并转换为候选人状态，然后他将给自己投票并且向集群中的其他节点发出RequestVote RPC。当以下三种情况发生时，结束候选人身份。1、这个节点赢得选举2、其他节点成为领导者3、没有选举出领导者。当一个候选人赢得一个term中的集群中大部分服务器的选票（大于及群众及其数量的二分之一）时，它将赢得选举，每个服务器最多给一位候选人投票。</p>
+<p>赢得选举后，发送心跳消息。在候选人等待投票时，可能会收到来自另一台服务器声称自己是领导者的消息，如果领导者的term至少与候选人当前的term相同，这名候选人承认领导者，并返回追随者的状态。如果小于候选者的term，候选者拒绝rpc，并继续保持候选人状态。</p>
+<p>如果多名追随者变为候选人，那么就有可能出现没有候选人获得多数的选票。raft使用随机的选举超时<strong><em>electiontimeout</em></strong>来保证这种情况很少发生。首先为了防止选票的分散，将从一个固定的范围内选择选举超时的时间，因此在大多数情况下只有一台服务器会超时，它赢得选举并且在其他服务器超时之前发送心跳。</p>
+<p>log replication</p>
+<p>9 评估raft</p>
+
     </div>
 
     
@@ -254,12 +297,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/01/20/Untitled%201/" rel="prev" title="在云服务器上安装hadoop">
-      <i class="fa fa-chevron-left"></i> 在云服务器上安装hadoop
+    <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E9%9B%86%E5%B8%82/" rel="prev" title="数据集市相关概念（来自aws）">
+      <i class="fa fa-chevron-left"></i> 数据集市相关概念（来自aws）
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/03/15/k8s/" rel="next" title="在谷歌云平台搭建kubernetes">
-      在谷歌云平台搭建kubernetes <i class="fa fa-chevron-right"></i>
+    <a href="/2023/02/07/Untitled%202/" rel="next" title="算法与数据结构-链表">
+      算法与数据结构-链表 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -319,6 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CAP%E7%90%86%E8%AE%BA"><span class="nav-number">1.1.</span> <span class="nav-text">CAP理论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">分布式共识算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%86%E5%AF%BC%E8%80%85%E9%80%89%E4%B8%BE"><span class="nav-number">3.</span> <span class="nav-text">领导者选举</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E5%A4%8D%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">日志复制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#raft%E6%96%B0%E7%89%B9%E7%82%B9"><span class="nav-number">4.1.</span> <span class="nav-text">raft新特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#raft%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">raft共识算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leader-election"><span class="nav-number">4.3.</span> <span class="nav-text">leader election</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -334,7 +378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -368,7 +412,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
