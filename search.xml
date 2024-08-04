@@ -66,42 +66,6 @@
       </categories>
   </entry>
   <entry>
-    <title>AB测试</title>
-    <url>/2023/06/12/abtest/</url>
-    <content><![CDATA[<p>AB测试是为明确某个问题，制作两个（A&#x2F;B）或多个（A&#x2F;B&#x2F;n）版本，在同一时间维度，分别让组成成分相同（相似）的访客群组（目标人群）随机的访问这些版本，收集各群组的用户体验数据和业务数据；最后分析、评估出最好版本，正式采用。</p>
-<span id="more"></span>
-
-<h1 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h1><h2 id="提出需求"><a href="#提出需求" class="headerlink" title="提出需求"></a>提出需求</h2><p>设置实验组，实验组新算法A，对照组原算法B；配置uv分桶，各50%流量，<strong>确定分析目标</strong></p>
-<h2 id="实验开发"><a href="#实验开发" class="headerlink" title="实验开发"></a>实验开发</h2><p>数据埋点；指标集成；用户分流</p>
-<h2 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h2><p>检查错误；确定置信区间</p>
-<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><p>1、时间一致性；</p>
-<p>2、数据分布的一致性；</p>
-<p>3、统计显著的结果才可以引导决策；</p>
-<p>4、实验分组设计上（流量分布要均匀）：</p>
-<p>算法对用户的偏差没有反映到实验分桶上，会放大算法之间效果的差距，从而产生辛普森悖论；</p>
-<p><img src="/2023/06/12/abtest/img1.png"></p>
-<p><img src="/2023/06/12/abtest/img2.png"></p>
-<p> 5、置信</p>
-<p> 要获得一个可信的试验结果需要一定的流量（样本）和时间，如果流量（样本）太小或者分不均匀，试验结果会存在偶然性，可能无法得出可信的结果；试验运行时间太短的话同理；</p>
-<p>6、时间</p>
-<p>实验周期中也要避免外部因素的影响，尽量在平稳时期进行，减少外部因素的干扰；有时候为了保证实验效果的置信，防止小流量分布不均匀，可以在试验过程中，逐步增大流量分配，同时监控关键指标的数据走势，从而得到置信的结论；</p>
-<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>对总体的参数提出假设，利用样本的信息去判断假设是否成立</p>
-<p>原假设：新版本可以提高点击率；备择假设：新版本不能提高点击率</p>
-<p><strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
-<p><img src="/2023/06/12/abtest/img3.png"></p>
-<h2 id="二类错误"><a href="#二类错误" class="headerlink" title="二类错误"></a>二类错误</h2><p>一类错误：弃真，拒绝原假设</p>
-<p>二类错误：取伪，</p>
-<p>弃真：我的实验改动实际没有用，但我认为它有用</p>
-<p>纳伪：我的实验改动实际有用，但我认为它没有用</p>
-<p>在统计学中，我们<strong>用显著性水平（α）来衡量犯第一类错误的概率</strong>，统计功效β来衡量犯第二类错误的概率</p>
-<p>检验统计量：<strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
-<p><img src="/2023/06/12/abtest/img4.png"></p>
-]]></content>
-      <categories>
-        <category>数据分析</category>
-      </categories>
-  </entry>
-  <entry>
     <title>在云服务器上安装hadoop</title>
     <url>/2023/01/20/Untitled%201/</url>
     <content><![CDATA[<h2 id="Secure-Virtual-Machine-Setup"><a href="#Secure-Virtual-Machine-Setup" class="headerlink" title="Secure Virtual Machine Setup"></a>Secure Virtual Machine Setup</h2><h3 id="set-up-a-virtual-machine"><a href="#set-up-a-virtual-machine" class="headerlink" title="set up a virtual machine"></a>set up a virtual machine</h3><p>Use google cloud-&gt;compute engine-&gt;virtual machine instance set up a virtual</p>
@@ -236,11 +200,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/12/12/cnn/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>算法与数据结构-链表</title>
     <url>/2023/02/07/Untitled%202/</url>
     <content><![CDATA[<p>链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域一个是指针域（存放指向下一个节点的指针），最后一个节点的指针域指向null（空指针的意思）。</p>
@@ -293,6 +252,42 @@
 ]]></content>
   </entry>
   <entry>
+    <title>AB测试</title>
+    <url>/2023/06/12/abtest/</url>
+    <content><![CDATA[<p>AB测试是为明确某个问题，制作两个（A&#x2F;B）或多个（A&#x2F;B&#x2F;n）版本，在同一时间维度，分别让组成成分相同（相似）的访客群组（目标人群）随机的访问这些版本，收集各群组的用户体验数据和业务数据；最后分析、评估出最好版本，正式采用。</p>
+<span id="more"></span>
+
+<h1 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h1><h2 id="提出需求"><a href="#提出需求" class="headerlink" title="提出需求"></a>提出需求</h2><p>设置实验组，实验组新算法A，对照组原算法B；配置uv分桶，各50%流量，<strong>确定分析目标</strong></p>
+<h2 id="实验开发"><a href="#实验开发" class="headerlink" title="实验开发"></a>实验开发</h2><p>数据埋点；指标集成；用户分流</p>
+<h2 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h2><p>检查错误；确定置信区间</p>
+<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><p>1、时间一致性；</p>
+<p>2、数据分布的一致性；</p>
+<p>3、统计显著的结果才可以引导决策；</p>
+<p>4、实验分组设计上（流量分布要均匀）：</p>
+<p>算法对用户的偏差没有反映到实验分桶上，会放大算法之间效果的差距，从而产生辛普森悖论；</p>
+<p><img src="/2023/06/12/abtest/img1.png"></p>
+<p><img src="/2023/06/12/abtest/img2.png"></p>
+<p> 5、置信</p>
+<p> 要获得一个可信的试验结果需要一定的流量（样本）和时间，如果流量（样本）太小或者分不均匀，试验结果会存在偶然性，可能无法得出可信的结果；试验运行时间太短的话同理；</p>
+<p>6、时间</p>
+<p>实验周期中也要避免外部因素的影响，尽量在平稳时期进行，减少外部因素的干扰；有时候为了保证实验效果的置信，防止小流量分布不均匀，可以在试验过程中，逐步增大流量分配，同时监控关键指标的数据走势，从而得到置信的结论；</p>
+<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>对总体的参数提出假设，利用样本的信息去判断假设是否成立</p>
+<p>原假设：新版本可以提高点击率；备择假设：新版本不能提高点击率</p>
+<p><strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
+<p><img src="/2023/06/12/abtest/img3.png"></p>
+<h2 id="二类错误"><a href="#二类错误" class="headerlink" title="二类错误"></a>二类错误</h2><p>一类错误：弃真，拒绝原假设</p>
+<p>二类错误：取伪，</p>
+<p>弃真：我的实验改动实际没有用，但我认为它有用</p>
+<p>纳伪：我的实验改动实际有用，但我认为它没有用</p>
+<p>在统计学中，我们<strong>用显著性水平（α）来衡量犯第一类错误的概率</strong>，统计功效β来衡量犯第二类错误的概率</p>
+<p>检验统计量：<strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
+<p><img src="/2023/06/12/abtest/img4.png"></p>
+]]></content>
+      <categories>
+        <category>数据分析</category>
+      </categories>
+  </entry>
+  <entry>
     <title>线性回归推导及实现</title>
     <url>/2022/07/19/cs229n/</url>
     <content><![CDATA[<p>有监督学习，目的是构建一种算法，来完成$ h:x\rightarrow y $的映射，$ x^i $为输入特征，$ y^i $ 为预测类别，${(x^i,y^i);i&#x3D;1…n}$构成训练集。当$ y $ 为连续值时，该问题是一种回归问题，映射$h(x)$为与真实值$y$接近的预测值。最简单的有监督学习的回归问题是线性回归。</p>
@@ -338,6 +333,11 @@
       <categories>
         <category>机器学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/12/12/cnn/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -478,12 +478,12 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2023/04/04/mapreduce/</url>
+    <url>/2022/10/29/pca/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>/2022/10/29/pca/</url>
+    <url>/2023/04/04/mapreduce/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -525,11 +525,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>假设检验</title>
     <url>/2022/07/20/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</url>
     <content><![CDATA[<h2 id="参数估计与假设检验"><a href="#参数估计与假设检验" class="headerlink" title="参数估计与假设检验"></a>参数估计与假设检验</h2><p>参数估计讨论的是用样本估计总体参数的方法，总体参数μ在估计前是未知的。<br>而在假设检验中，则是先对μ的值提出一个假设，然后利用样本信息去检验这个假设是否成立。</p>
@@ -549,6 +544,11 @@
       </categories>
   </entry>
   <entry>
+    <title></title>
+    <url>/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>数据探索性分析（EDA）</title>
     <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
     <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
@@ -557,6 +557,30 @@
 <h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
       <categories>
         <category>数据科学</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常见机器学习算法sklearn实现demo</title>
+    <url>/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0demo/</url>
+    <content><![CDATA[<p>导入相关的库</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"><span class="keyword">from</span> kneed <span class="keyword">import</span> KneeLocator</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></table></figure>
+
+<h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p>LinearRegression()线性回归，十折交叉验证，计算评价指标MSE</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_5</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the MLR model</span></span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    X = df[predictors].values.astype(<span class="built_in">float</span>)</span><br><span class="line">    y = df[target].values.astype(<span class="built_in">float</span>).reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    sc_X = StandardScaler()</span><br><span class="line">    sc_y = StandardScaler()</span><br><span class="line">    X = sc_X.fit_transform(X)</span><br><span class="line">    y = sc_y.fit_transform(y)</span><br><span class="line">    mse = []</span><br><span class="line">    regr = linear_model.LinearRegression()</span><br><span class="line">    kf = KFold(n_splits=<span class="number">10</span>, shuffle=<span class="literal">True</span>, random_state=<span class="number">5726</span>)</span><br><span class="line">    <span class="keyword">for</span> X_train, X_test <span class="keyword">in</span> kf.split(X):</span><br><span class="line">        regr.fit(X[X_train], y[X_train])</span><br><span class="line">        y_pred = regr.predict(X[X_test])</span><br><span class="line">        mse.append(mean_squared_error(y[X_test], y_pred))</span><br><span class="line">    mean_cv_mse = np.mean(mse)</span><br><span class="line">    sd_cv_mse = np.std(mse)</span><br><span class="line">    model = regr</span><br><span class="line">    <span class="keyword">return</span> model, mean_cv_mse, sd_cv_mse</span><br></pre></td></tr></table></figure>
+
+<h1 id="随机森林分类"><a href="#随机森林分类" class="headerlink" title="随机森林分类"></a>随机森林分类</h1><p>随机森林分类器，十折交叉验证，评价指标准确率</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_3</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the RF model</span></span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    train_data = df[predictors]</span><br><span class="line">    label = df[target]</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(train_data)</span><br><span class="line">    x_train = PredictorScalerFit.transform(train_data)</span><br><span class="line">    model = RandomForestClassifier(random_state=<span class="number">5726</span>)</span><br><span class="line">    acc_arr = cross_val_score(model, x_train, label, scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=<span class="number">10</span>)</span><br><span class="line">    mean_cv_acc = np.mean(acc_arr)</span><br><span class="line">    sd_cv_acc = np.std(acc_arr)</span><br><span class="line">    <span class="keyword">return</span> model, mean_cv_acc, sd_cv_acc</span><br></pre></td></tr></table></figure>
+
+<h1 id="支持向量回归"><a href="#支持向量回归" class="headerlink" title="支持向量回归"></a>支持向量回归</h1><p>评价指标MAE,RMSE</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_4</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the SVR model</span></span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    X = df[predictors].values.astype(<span class="built_in">float</span>)</span><br><span class="line">    y = df[target].values.astype(<span class="built_in">float</span>).reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    sc_X = StandardScaler()</span><br><span class="line">    sc_y = StandardScaler()</span><br><span class="line">    X = sc_X.fit_transform(X)</span><br><span class="line">    y = sc_y.fit_transform(y)</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.3</span>,</span><br><span class="line">                                                        random_state=<span class="number">5726</span>)</span><br><span class="line">    regressor = SVR(kernel=<span class="string">&#x27;poly&#x27;</span>)</span><br><span class="line">    regressor.fit(X_train, y_train)</span><br><span class="line">    y_pred = regressor.predict(X_test)</span><br><span class="line">    test_mae = mean_absolute_error(y_test, y_pred)</span><br><span class="line">    test_rmse = mean_squared_error(y_test, y_pred) ** <span class="number">0.5</span></span><br><span class="line">    model = regressor</span><br><span class="line">    <span class="keyword">return</span> model, test_mae, test_rmse</span><br></pre></td></tr></table></figure>
+
+<h1 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a>k-means</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_6</span>(<span class="params">train_filename,predictors,test_filename</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the k-mean model</span></span><br><span class="line">    df_train = pd.read_csv(train_filename)</span><br><span class="line">    df_test = pd.read_csv(test_filename)</span><br><span class="line">    train_data = df_train[predictors]</span><br><span class="line">    test_data = df_test[predictors]</span><br><span class="line">    scaler = StandardScaler()</span><br><span class="line">    scaled_features = scaler.fit_transform(train_data)</span><br><span class="line">    scaler = StandardScaler()</span><br><span class="line">    scaled_features2 = scaler.fit_transform(test_data)</span><br><span class="line">    kmeans_kwargs = &#123;<span class="string">&quot;init&quot;</span>: <span class="string">&quot;random&quot;</span>, <span class="string">&quot;n_init&quot;</span>: <span class="number">5</span>, <span class="string">&quot;max_iter&quot;</span>: <span class="number">300</span>, <span class="string">&quot;random_state&quot;</span>: <span class="number">5726</span>&#125;</span><br><span class="line">    sse = []  <span class="comment"># A list holds the SSE values for each k</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">        kmeans = KMeans(n_clusters=k, **kmeans_kwargs)</span><br><span class="line">        kmeans.fit(scaled_features)</span><br><span class="line">        sse.append(kmeans.inertia_)</span><br><span class="line">    kl = KneeLocator(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>), sse, curve=<span class="string">&quot;convex&quot;</span>, direction=<span class="string">&quot;decreasing&quot;</span>)</span><br><span class="line">    kmeans = KMeans(init=<span class="string">&quot;random&quot;</span>, n_clusters=<span class="number">4</span>, n_init=<span class="number">5</span>, random_state=<span class="number">5726</span>)</span><br><span class="line">    kmeans.fit(scaled_features)</span><br><span class="line">    result = kmeans.predict(scaled_features2)</span><br><span class="line">    k = kl.elbow</span><br><span class="line">    model = kmeans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model, k, result</span><br></pre></td></tr></table></figure>
+
+<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_2</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the NN model</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setup_seed</span>(<span class="params">seed</span>):</span><br><span class="line">        torch.manual_seed(seed)</span><br><span class="line">        torch.cuda.manual_seed_all(seed)</span><br><span class="line">        np.random.seed(seed)</span><br><span class="line">        random.seed(seed)</span><br><span class="line">        torch.backends.cudnn.deterministic = <span class="literal">True</span></span><br><span class="line">    setup_seed(<span class="number">5726</span>)</span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    train_data = df[predictors]</span><br><span class="line">    label = df[target]</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(train_data, label, test_size=<span class="number">0.3</span>,</span><br><span class="line">                                                        random_state=<span class="number">5726</span>)</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(X_train)</span><br><span class="line">    x_train = PredictorScalerFit.transform(X_train)</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(X_test)</span><br><span class="line">    x_test = PredictorScalerFit.transform(X_test)</span><br><span class="line">    n_input, n_hidden1, n_hidden2, n_out, learning_rate = <span class="number">11</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0.01</span></span><br><span class="line">    data_x = torch.FloatTensor(x_train)</span><br><span class="line">    y_train = np.array(y_train)</span><br><span class="line">    data_y = torch.FloatTensor(y_train).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    model = nn.Sequential(nn.Linear(n_input, n_hidden1), nn.ReLU(),</span><br><span class="line">                          nn.Linear(n_hidden1, n_hidden2), nn.ReLU(),</span><br><span class="line">                          nn.Linear(n_hidden2, n_out), nn.Sigmoid())</span><br><span class="line">    loss_function = nn.MSELoss()</span><br><span class="line">    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)</span><br><span class="line">    losses = []  <span class="comment"># Training Loop</span></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">500</span>):</span><br><span class="line">        pred_y = model(data_x)</span><br><span class="line">        loss = loss_function(pred_y, data_y)</span><br><span class="line">        losses.append(loss.item())</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">    targets = model(torch.FloatTensor(x_test))</span><br><span class="line">    test_recall = metrics.precision_score(np.<span class="built_in">round</span>(targets.detach().numpy()), y_test)</span><br><span class="line">    test_precision = metrics.recall_score(np.<span class="built_in">round</span>(targets.detach().numpy()), y_test)</span><br><span class="line">    model = model._modules</span><br><span class="line">    <span class="keyword">return</span> model, test_precision, test_recall</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>机器学习</category>
       </categories>
   </entry>
   <entry>
@@ -642,30 +666,6 @@
 </ul>
 <p>非规范化型数据集市由于采用单表方法，因此适用于实时报告。但是，数据集市的非规范化会导致数据冗余。例如，同一产品名称可能会出现在多个记录中。这会导致额外的存储空间和昂贵的实施成本。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>常见机器学习算法sklearn实现demo</title>
-    <url>/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0demo/</url>
-    <content><![CDATA[<p>导入相关的库</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"><span class="keyword">from</span> kneed <span class="keyword">import</span> KneeLocator</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br></pre></td></tr></table></figure>
-
-<h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><p>LinearRegression()线性回归，十折交叉验证，计算评价指标MSE</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_5</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the MLR model</span></span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    X = df[predictors].values.astype(<span class="built_in">float</span>)</span><br><span class="line">    y = df[target].values.astype(<span class="built_in">float</span>).reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    sc_X = StandardScaler()</span><br><span class="line">    sc_y = StandardScaler()</span><br><span class="line">    X = sc_X.fit_transform(X)</span><br><span class="line">    y = sc_y.fit_transform(y)</span><br><span class="line">    mse = []</span><br><span class="line">    regr = linear_model.LinearRegression()</span><br><span class="line">    kf = KFold(n_splits=<span class="number">10</span>, shuffle=<span class="literal">True</span>, random_state=<span class="number">5726</span>)</span><br><span class="line">    <span class="keyword">for</span> X_train, X_test <span class="keyword">in</span> kf.split(X):</span><br><span class="line">        regr.fit(X[X_train], y[X_train])</span><br><span class="line">        y_pred = regr.predict(X[X_test])</span><br><span class="line">        mse.append(mean_squared_error(y[X_test], y_pred))</span><br><span class="line">    mean_cv_mse = np.mean(mse)</span><br><span class="line">    sd_cv_mse = np.std(mse)</span><br><span class="line">    model = regr</span><br><span class="line">    <span class="keyword">return</span> model, mean_cv_mse, sd_cv_mse</span><br></pre></td></tr></table></figure>
-
-<h1 id="随机森林分类"><a href="#随机森林分类" class="headerlink" title="随机森林分类"></a>随机森林分类</h1><p>随机森林分类器，十折交叉验证，评价指标准确率</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_3</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the RF model</span></span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    train_data = df[predictors]</span><br><span class="line">    label = df[target]</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(train_data)</span><br><span class="line">    x_train = PredictorScalerFit.transform(train_data)</span><br><span class="line">    model = RandomForestClassifier(random_state=<span class="number">5726</span>)</span><br><span class="line">    acc_arr = cross_val_score(model, x_train, label, scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=<span class="number">10</span>)</span><br><span class="line">    mean_cv_acc = np.mean(acc_arr)</span><br><span class="line">    sd_cv_acc = np.std(acc_arr)</span><br><span class="line">    <span class="keyword">return</span> model, mean_cv_acc, sd_cv_acc</span><br></pre></td></tr></table></figure>
-
-<h1 id="支持向量回归"><a href="#支持向量回归" class="headerlink" title="支持向量回归"></a>支持向量回归</h1><p>评价指标MAE,RMSE</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_4</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the SVR model</span></span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    X = df[predictors].values.astype(<span class="built_in">float</span>)</span><br><span class="line">    y = df[target].values.astype(<span class="built_in">float</span>).reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    sc_X = StandardScaler()</span><br><span class="line">    sc_y = StandardScaler()</span><br><span class="line">    X = sc_X.fit_transform(X)</span><br><span class="line">    y = sc_y.fit_transform(y)</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.3</span>,</span><br><span class="line">                                                        random_state=<span class="number">5726</span>)</span><br><span class="line">    regressor = SVR(kernel=<span class="string">&#x27;poly&#x27;</span>)</span><br><span class="line">    regressor.fit(X_train, y_train)</span><br><span class="line">    y_pred = regressor.predict(X_test)</span><br><span class="line">    test_mae = mean_absolute_error(y_test, y_pred)</span><br><span class="line">    test_rmse = mean_squared_error(y_test, y_pred) ** <span class="number">0.5</span></span><br><span class="line">    model = regressor</span><br><span class="line">    <span class="keyword">return</span> model, test_mae, test_rmse</span><br></pre></td></tr></table></figure>
-
-<h1 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a>k-means</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_6</span>(<span class="params">train_filename,predictors,test_filename</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the k-mean model</span></span><br><span class="line">    df_train = pd.read_csv(train_filename)</span><br><span class="line">    df_test = pd.read_csv(test_filename)</span><br><span class="line">    train_data = df_train[predictors]</span><br><span class="line">    test_data = df_test[predictors]</span><br><span class="line">    scaler = StandardScaler()</span><br><span class="line">    scaled_features = scaler.fit_transform(train_data)</span><br><span class="line">    scaler = StandardScaler()</span><br><span class="line">    scaled_features2 = scaler.fit_transform(test_data)</span><br><span class="line">    kmeans_kwargs = &#123;<span class="string">&quot;init&quot;</span>: <span class="string">&quot;random&quot;</span>, <span class="string">&quot;n_init&quot;</span>: <span class="number">5</span>, <span class="string">&quot;max_iter&quot;</span>: <span class="number">300</span>, <span class="string">&quot;random_state&quot;</span>: <span class="number">5726</span>&#125;</span><br><span class="line">    sse = []  <span class="comment"># A list holds the SSE values for each k</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">        kmeans = KMeans(n_clusters=k, **kmeans_kwargs)</span><br><span class="line">        kmeans.fit(scaled_features)</span><br><span class="line">        sse.append(kmeans.inertia_)</span><br><span class="line">    kl = KneeLocator(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>), sse, curve=<span class="string">&quot;convex&quot;</span>, direction=<span class="string">&quot;decreasing&quot;</span>)</span><br><span class="line">    kmeans = KMeans(init=<span class="string">&quot;random&quot;</span>, n_clusters=<span class="number">4</span>, n_init=<span class="number">5</span>, random_state=<span class="number">5726</span>)</span><br><span class="line">    kmeans.fit(scaled_features)</span><br><span class="line">    result = kmeans.predict(scaled_features2)</span><br><span class="line">    k = kl.elbow</span><br><span class="line">    model = kmeans</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> model, k, result</span><br></pre></td></tr></table></figure>
-
-<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_2</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the NN model</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setup_seed</span>(<span class="params">seed</span>):</span><br><span class="line">        torch.manual_seed(seed)</span><br><span class="line">        torch.cuda.manual_seed_all(seed)</span><br><span class="line">        np.random.seed(seed)</span><br><span class="line">        random.seed(seed)</span><br><span class="line">        torch.backends.cudnn.deterministic = <span class="literal">True</span></span><br><span class="line">    setup_seed(<span class="number">5726</span>)</span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    train_data = df[predictors]</span><br><span class="line">    label = df[target]</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(train_data, label, test_size=<span class="number">0.3</span>,</span><br><span class="line">                                                        random_state=<span class="number">5726</span>)</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(X_train)</span><br><span class="line">    x_train = PredictorScalerFit.transform(X_train)</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(X_test)</span><br><span class="line">    x_test = PredictorScalerFit.transform(X_test)</span><br><span class="line">    n_input, n_hidden1, n_hidden2, n_out, learning_rate = <span class="number">11</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0.01</span></span><br><span class="line">    data_x = torch.FloatTensor(x_train)</span><br><span class="line">    y_train = np.array(y_train)</span><br><span class="line">    data_y = torch.FloatTensor(y_train).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    model = nn.Sequential(nn.Linear(n_input, n_hidden1), nn.ReLU(),</span><br><span class="line">                          nn.Linear(n_hidden1, n_hidden2), nn.ReLU(),</span><br><span class="line">                          nn.Linear(n_hidden2, n_out), nn.Sigmoid())</span><br><span class="line">    loss_function = nn.MSELoss()</span><br><span class="line">    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)</span><br><span class="line">    losses = []  <span class="comment"># Training Loop</span></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">500</span>):</span><br><span class="line">        pred_y = model(data_x)</span><br><span class="line">        loss = loss_function(pred_y, data_y)</span><br><span class="line">        losses.append(loss.item())</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">    targets = model(torch.FloatTensor(x_test))</span><br><span class="line">    test_recall = metrics.precision_score(np.<span class="built_in">round</span>(targets.detach().numpy()), y_test)</span><br><span class="line">    test_precision = metrics.recall_score(np.<span class="built_in">round</span>(targets.detach().numpy()), y_test)</span><br><span class="line">    model = model._modules</span><br><span class="line">    <span class="keyword">return</span> model, test_precision, test_recall</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
   </entry>
   <entry>
     <title></title>
