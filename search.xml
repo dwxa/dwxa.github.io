@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>SVM推导及Python实现</title>
-    <url>/2022/07/27/CS229n%E4%B9%8BSVM/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Pandas常见使用</title>
     <url>/2022/08/10/Pandas%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%89%AF%E6%9C%AC/</url>
     <content><![CDATA[<h1 id="读取外部数据"><a href="#读取外部数据" class="headerlink" title="读取外部数据"></a>读取外部数据</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment">#读取csv，txt，excel文件</span></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br><span class="line">df = pd.read_table(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br><span class="line">df = pd.read_excel(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
@@ -356,6 +351,11 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>SVM推导及Python实现</title>
+    <url>/2022/07/27/CS229n%E4%B9%8BSVM/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>HQL性能调优</title>
