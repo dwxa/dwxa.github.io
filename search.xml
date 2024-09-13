@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>SVM推导及Python实现</title>
-    <url>/2022/07/27/CS229n%E4%B9%8BSVM/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Pandas常见使用</title>
     <url>/2022/08/10/Pandas%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%9A%84%E5%89%AF%E6%9C%AC/</url>
     <content><![CDATA[<h1 id="读取外部数据"><a href="#读取外部数据" class="headerlink" title="读取外部数据"></a>读取外部数据</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment">#读取csv，txt，excel文件</span></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br><span class="line">df = pd.read_table(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br><span class="line">df = pd.read_excel(<span class="string">&#x27;filename.csv&#x27;</span>)</span><br></pre></td></tr></table></figure>
@@ -64,6 +59,11 @@
       <categories>
         <category>Python</category>
       </categories>
+  </entry>
+  <entry>
+    <title>SVM推导及Python实现</title>
+    <url>/2022/07/27/CS229n%E4%B9%8BSVM/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>在云服务器上安装hadoop</title>
@@ -200,6 +200,70 @@
 ]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/2022/12/12/cnn/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>AB测试</title>
+    <url>/2023/06/12/abtest/</url>
+    <content><![CDATA[<p>AB测试是为明确某个问题，制作两个（A&#x2F;B）或多个（A&#x2F;B&#x2F;n）版本，在同一时间维度，分别让组成成分相同（相似）的访客群组（目标人群）随机的访问这些版本，收集各群组的用户体验数据和业务数据；最后分析、评估出最好版本，正式采用。</p>
+<span id="more"></span>
+
+<h1 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h1><h2 id="提出需求"><a href="#提出需求" class="headerlink" title="提出需求"></a>提出需求</h2><p>设置实验组，实验组新算法A，对照组原算法B；配置uv分桶，各50%流量，<strong>确定分析目标</strong></p>
+<h2 id="实验开发"><a href="#实验开发" class="headerlink" title="实验开发"></a>实验开发</h2><p>数据埋点；指标集成；用户分流</p>
+<h2 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h2><p>检查错误；确定置信区间</p>
+<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><p>1、时间一致性；</p>
+<p>2、数据分布的一致性；</p>
+<p>3、统计显著的结果才可以引导决策；</p>
+<p>4、实验分组设计上（流量分布要均匀）：</p>
+<p>算法对用户的偏差没有反映到实验分桶上，会放大算法之间效果的差距，从而产生辛普森悖论；</p>
+<p><img src="/2023/06/12/abtest/img1.png"></p>
+<p><img src="/2023/06/12/abtest/img2.png"></p>
+<p> 5、置信</p>
+<p> 要获得一个可信的试验结果需要一定的流量（样本）和时间，如果流量（样本）太小或者分不均匀，试验结果会存在偶然性，可能无法得出可信的结果；试验运行时间太短的话同理；</p>
+<p>6、时间</p>
+<p>实验周期中也要避免外部因素的影响，尽量在平稳时期进行，减少外部因素的干扰；有时候为了保证实验效果的置信，防止小流量分布不均匀，可以在试验过程中，逐步增大流量分配，同时监控关键指标的数据走势，从而得到置信的结论；</p>
+<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>对总体的参数提出假设，利用样本的信息去判断假设是否成立</p>
+<p>原假设：新版本可以提高点击率；备择假设：新版本不能提高点击率</p>
+<p><strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
+<p><img src="/2023/06/12/abtest/img3.png"></p>
+<h2 id="二类错误"><a href="#二类错误" class="headerlink" title="二类错误"></a>二类错误</h2><p>一类错误：弃真，拒绝原假设</p>
+<p>二类错误：取伪，</p>
+<p>弃真：我的实验改动实际没有用，但我认为它有用</p>
+<p>纳伪：我的实验改动实际有用，但我认为它没有用</p>
+<p>在统计学中，我们<strong>用显著性水平（α）来衡量犯第一类错误的概率</strong>，统计功效β来衡量犯第二类错误的概率</p>
+<p>检验统计量：<strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
+<p><img src="/2023/06/12/abtest/img4.png"></p>
+]]></content>
+      <categories>
+        <category>数据分析</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>HQL性能调优</title>
+    <url>/2022/07/17/hql%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</url>
+    <content><![CDATA[<h1 id="hive简介"><a href="#hive简介" class="headerlink" title="hive简介"></a>hive简介</h1><p>Hive是基于Hadoop的数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单sql查询功能，可以将sql语句转换为MapReduce任务进行运行。<br>sql命令-&gt;HIVE处理，转换为MapReduce-&gt;提交任务到Hadoop,HDFS,MapReduce运行</p>
+<h1 id="hive-ddl"><a href="#hive-ddl" class="headerlink" title="hive-ddl"></a>hive-ddl</h1><h3 id="hive建表（压缩表和非压缩表）"><a href="#hive建表（压缩表和非压缩表）" class="headerlink" title="hive建表（压缩表和非压缩表）"></a>hive建表（压缩表和非压缩表）</h3><p>一个表有一个或多个分区，每个分区以文件夹的形式单独存放在表文件夹的目录下</p>
+<p>创建表，指定EXTERNAL是外部表，没有指定内部表，内部表在drop时会从HDFS上删除数据，外部表不会删除。</p>
+<p>如果不指定数据库，hive把表创建在default数据库下</p>
+<p>内部表：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> login(</span><br><span class="line">userid <span class="type">bigint</span>,</span><br><span class="line">ip string</span><br><span class="line"><span class="type">time</span> <span class="type">bigint</span>)</span><br><span class="line"><span class="keyword">partition</span> <span class="keyword">by</span>(dt string)</span><br><span class="line"><span class="type">row</span> format delimited</span><br><span class="line">fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span></span><br><span class="line">stored <span class="keyword">as</span> textfile;</span><br></pre></td></tr></table></figure>
+<p>外部表</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">location</span><br></pre></td></tr></table></figure>
+<h1 id="hive-dml"><a href="#hive-dml" class="headerlink" title="hive-dml"></a>hive-dml</h1><h3 id="hive优化的根本思想"><a href="#hive优化的根本思想" class="headerlink" title="hive优化的根本思想"></a>hive优化的根本思想</h3><p>尽早过滤数据，减少每个阶段的数据量<br>减少job数<br>解决数据倾斜问题</p>
+<h3 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h3><p><strong>1、列裁剪</strong><br>只选择需要的字段<br><strong>2、分区裁剪</strong><br>查询过程中减少不必要的分区</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(orderid)</span><br><span class="line"><span class="keyword">from</span> order_table</span><br><span class="line"><span class="keyword">where</span> to_date(sale_time)<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span></span><br><span class="line"><span class="keyword">hour</span>(to_date(sale_time))<span class="operator">=</span><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(orderid)</span><br><span class="line"><span class="keyword">from</span> order_table</span><br><span class="line"><span class="keyword">where</span> dt<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span> to_date(sale_time)<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span></span><br><span class="line"><span class="keyword">hour</span>(to_date(sale_time))<span class="operator">=</span><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p><code>explain dependency</code>语法获取扫描的分区<br>**3、利用hive优化机制减少job数 **<br>三个以上表关联时，如果join的key相同，都会合并成一个mapreduce任务</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select a.val,b.val,c.val</span><br><span class="line">from a join b on(a.key=b.key1)</span><br><span class="line">join c on (c.key=b.key1)</span><br><span class="line">#优化为一个job</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>HIVE</category>
+      </categories>
+  </entry>
+  <entry>
     <title>算法与数据结构-链表</title>
     <url>/2023/02/07/Untitled%202/</url>
     <content><![CDATA[<p>链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域一个是指针域（存放指向下一个节点的指针），最后一个节点的指针域指向null（空指针的意思）。</p>
@@ -252,45 +316,22 @@
 ]]></content>
   </entry>
   <entry>
-    <title>AB测试</title>
-    <url>/2023/06/12/abtest/</url>
-    <content><![CDATA[<p>AB测试是为明确某个问题，制作两个（A&#x2F;B）或多个（A&#x2F;B&#x2F;n）版本，在同一时间维度，分别让组成成分相同（相似）的访客群组（目标人群）随机的访问这些版本，收集各群组的用户体验数据和业务数据；最后分析、评估出最好版本，正式采用。</p>
-<span id="more"></span>
+    <title>Hello World</title>
+    <url>/2022/07/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h1><h2 id="提出需求"><a href="#提出需求" class="headerlink" title="提出需求"></a>提出需求</h2><p>设置实验组，实验组新算法A，对照组原算法B；配置uv分桶，各50%流量，<strong>确定分析目标</strong></p>
-<h2 id="实验开发"><a href="#实验开发" class="headerlink" title="实验开发"></a>实验开发</h2><p>数据埋点；指标集成；用户分流</p>
-<h2 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h2><p>检查错误；确定置信区间</p>
-<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><p>1、时间一致性；</p>
-<p>2、数据分布的一致性；</p>
-<p>3、统计显著的结果才可以引导决策；</p>
-<p>4、实验分组设计上（流量分布要均匀）：</p>
-<p>算法对用户的偏差没有反映到实验分桶上，会放大算法之间效果的差距，从而产生辛普森悖论；</p>
-<p><img src="/2023/06/12/abtest/img1.png"></p>
-<p><img src="/2023/06/12/abtest/img2.png"></p>
-<p> 5、置信</p>
-<p> 要获得一个可信的试验结果需要一定的流量（样本）和时间，如果流量（样本）太小或者分不均匀，试验结果会存在偶然性，可能无法得出可信的结果；试验运行时间太短的话同理；</p>
-<p>6、时间</p>
-<p>实验周期中也要避免外部因素的影响，尽量在平稳时期进行，减少外部因素的干扰；有时候为了保证实验效果的置信，防止小流量分布不均匀，可以在试验过程中，逐步增大流量分配，同时监控关键指标的数据走势，从而得到置信的结论；</p>
-<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>对总体的参数提出假设，利用样本的信息去判断假设是否成立</p>
-<p>原假设：新版本可以提高点击率；备择假设：新版本不能提高点击率</p>
-<p><strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
-<p><img src="/2023/06/12/abtest/img3.png"></p>
-<h2 id="二类错误"><a href="#二类错误" class="headerlink" title="二类错误"></a>二类错误</h2><p>一类错误：弃真，拒绝原假设</p>
-<p>二类错误：取伪，</p>
-<p>弃真：我的实验改动实际没有用，但我认为它有用</p>
-<p>纳伪：我的实验改动实际有用，但我认为它没有用</p>
-<p>在统计学中，我们<strong>用显著性水平（α）来衡量犯第一类错误的概率</strong>，统计功效β来衡量犯第二类错误的概率</p>
-<p>检验统计量：<strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
-<p><img src="/2023/06/12/abtest/img4.png"></p>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>数据分析</category>
-      </categories>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/12/12/cnn/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>线性回归推导及实现</title>
@@ -338,52 +379,6 @@
       <categories>
         <category>机器学习</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/07/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>HQL性能调优</title>
-    <url>/2022/07/17/hql%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/</url>
-    <content><![CDATA[<h1 id="hive简介"><a href="#hive简介" class="headerlink" title="hive简介"></a>hive简介</h1><p>Hive是基于Hadoop的数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单sql查询功能，可以将sql语句转换为MapReduce任务进行运行。<br>sql命令-&gt;HIVE处理，转换为MapReduce-&gt;提交任务到Hadoop,HDFS,MapReduce运行</p>
-<h1 id="hive-ddl"><a href="#hive-ddl" class="headerlink" title="hive-ddl"></a>hive-ddl</h1><h3 id="hive建表（压缩表和非压缩表）"><a href="#hive建表（压缩表和非压缩表）" class="headerlink" title="hive建表（压缩表和非压缩表）"></a>hive建表（压缩表和非压缩表）</h3><p>一个表有一个或多个分区，每个分区以文件夹的形式单独存放在表文件夹的目录下</p>
-<p>创建表，指定EXTERNAL是外部表，没有指定内部表，内部表在drop时会从HDFS上删除数据，外部表不会删除。</p>
-<p>如果不指定数据库，hive把表创建在default数据库下</p>
-<p>内部表：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> login(</span><br><span class="line">userid <span class="type">bigint</span>,</span><br><span class="line">ip string</span><br><span class="line"><span class="type">time</span> <span class="type">bigint</span>)</span><br><span class="line"><span class="keyword">partition</span> <span class="keyword">by</span>(dt string)</span><br><span class="line"><span class="type">row</span> format delimited</span><br><span class="line">fields terminated <span class="keyword">by</span> <span class="string">&#x27;\t&#x27;</span></span><br><span class="line">stored <span class="keyword">as</span> textfile;</span><br></pre></td></tr></table></figure>
-<p>外部表</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">location</span><br></pre></td></tr></table></figure>
-<h1 id="hive-dml"><a href="#hive-dml" class="headerlink" title="hive-dml"></a>hive-dml</h1><h3 id="hive优化的根本思想"><a href="#hive优化的根本思想" class="headerlink" title="hive优化的根本思想"></a>hive优化的根本思想</h3><p>尽早过滤数据，减少每个阶段的数据量<br>减少job数<br>解决数据倾斜问题</p>
-<h3 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h3><p><strong>1、列裁剪</strong><br>只选择需要的字段<br><strong>2、分区裁剪</strong><br>查询过程中减少不必要的分区</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(orderid)</span><br><span class="line"><span class="keyword">from</span> order_table</span><br><span class="line"><span class="keyword">where</span> to_date(sale_time)<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span></span><br><span class="line"><span class="keyword">hour</span>(to_date(sale_time))<span class="operator">=</span><span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p>改为</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(orderid)</span><br><span class="line"><span class="keyword">from</span> order_table</span><br><span class="line"><span class="keyword">where</span> dt<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span> to_date(sale_time)<span class="operator">=</span><span class="string">&#x27;2014-03-03&#x27;</span> <span class="keyword">and</span></span><br><span class="line"><span class="keyword">hour</span>(to_date(sale_time))<span class="operator">=</span><span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p><code>explain dependency</code>语法获取扫描的分区<br>**3、利用hive优化机制减少job数 **<br>三个以上表关联时，如果join的key相同，都会合并成一个mapreduce任务</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select a.val,b.val,c.val</span><br><span class="line">from a join b on(a.key=b.key1)</span><br><span class="line">join c on (c.key=b.key1)</span><br><span class="line">#优化为一个job</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>HIVE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2023/04/04/mapreduce/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>在谷歌云平台搭建kubernetes</title>
@@ -487,6 +482,11 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/2023/04/04/mapreduce/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>raft协议理论</title>
     <url>/2023/02/07/raft/</url>
     <content><![CDATA[<p>raft是一种管理日志复制的共识算法，其比paxos更加易于理解而且为构建实用的系统提供了更好的基础。</p>
@@ -541,17 +541,6 @@
 ]]></content>
       <categories>
         <category>统计学原理</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>数据探索性分析（EDA）</title>
-    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
-    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
-<span id="more"></span>
-
-<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
-      <categories>
-        <category>数据科学</category>
       </categories>
   </entry>
   <entry>
@@ -645,6 +634,37 @@
 ]]></content>
   </entry>
   <entry>
+    <title>逻辑回归</title>
+    <url>/2022/07/27/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</url>
+    <content><![CDATA[<h1 id="Sigmoid函数"><a href="#Sigmoid函数" class="headerlink" title="Sigmoid函数"></a>Sigmoid函数</h1><p>对于二分类问题，我们期望通过监督学习，输出结果达到二分类的效果，如0代表负向分类，1代表正向分类。因此，所选择的函数的输出范围需要在[0,1]内，而对于线性回归模型，它的输出是离散的，因此我们要把离散的输出限制在连续范围[0,1]内。</p>
+<p>有如下函数<br>$$<br>h(x)&#x3D;g(\theta^{T}x)&#x3D;\frac{1}{1+e^{-\theta^{T}x}}<br>$$</p>
+<p>即<br>$$<br>g(z)&#x3D;\frac{1}{1+e^{-z}}<br>$$<br>其中$\theta^Tx$是线性函数，范围为$[-\infty,\infty]$，$g(z)$将$[-\infty,\infty]$的范围映射到$[0,1]$，通过这种方法，我门可以采用类似回归的方法解决二分类问题，$g(z)$的值被视为分到某一类的概率，即分到1或0类的概率为<br>$$<br>P(y&#x3D;1|x;\theta)&#x3D;h(x)&#x3D;g(\theta^{T}x)\<br>P(y&#x3D;0|x;\theta)&#x3D;1-h(x)&#x3D;1-g(\theta^{T}x)<br>$$<br>将上式可以更简洁地表示为<br>$$<br>P(y|x;\theta)&#x3D;（h(x))^y(1-h(x))^{1-y}<br>$$</p>
+<h1 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h1><p>样本$(x_i,y_i)$满足独立同分布，因此，采用极大似然估计法估计参数$\theta$，首先写出似然函数<br>$$<br>\begin{aligned}<br>{ \max_{\theta}L(\theta)}<br>&amp; &#x3D; \prod_{i&#x3D;1}^mp(y^{(i)}|x^{(i)};\theta)\<br>&amp; &#x3D; \prod_{i&#x3D;1}^m(h(x^{(i)}))^{y^{(i)}}(1-h(x^{(i)}))^{1-y^{(i)}}<br>\end{aligned}<br>$$<br>对似然函数取对数，转换为求和<br>$$<br>l(\theta)&#x3D;logL(\theta)\<br>&#x3D;\sum_{i&#x3D;1}^my^{(i)}logh(x^{(i)})+(1-y^{(i)})log(1-h(x^{(i)}))<br>$$</p>
+<h1 id="梯度上升法求解参数"><a href="#梯度上升法求解参数" class="headerlink" title="梯度上升法求解参数"></a>梯度上升法求解参数</h1><p>与线性回归中估计参数$\theta$的梯度下降方法类似，采用梯度上升方法，来最大化似然函数<br>$$<br>\theta:&#x3D;\theta+\alpha\nabla_{\theta}l(\theta)<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\frac{\partial l(\theta)}{\partial\theta_j}<br>&amp; &#x3D; (y\frac{1}{g(\theta^{T}x)}-(1-y)\frac{1}{1-g(\theta^{T}x)})\frac{\partial g(\theta^{T}x)}{\partial\theta_j} \<br>&amp; &#x3D; (y\frac{1}{g(\theta^{T}x)}-(1-y)\frac{1}{1-g(\theta^{T}x)}) g(\theta^{T}x)(1-g(\theta^{T}x))\frac{\partial \theta^{T}x}{\partial\theta_j}\<br>&amp; &#x3D; (y(1-g(\theta^{T}x))-(1-y)g(\theta^{T}x)) x_j\<br>&amp; &#x3D; (y-h_{\theta}(x))x_j<br>\end{aligned}<br>$$</p>
+<h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><p>逻辑回归的损失函数即是在似然函数前加负号，即将极大化的似然函数转换为求最小值的损失函数。该损失函数又称为二进制交叉熵损失函数（BCE）<br>$$<br>H(\theta)&#x3D;-l(\theta)<br>&#x3D;-[\sum_{i&#x3D;1}^my^{(i)}logh(x^{(i)})+(1-y^{(i)})log(1-h(x^{(i)}))]<br>$$</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数据探索性分析（EDA）</title>
+    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
+    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
+<span id="more"></span>
+
+<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
+      <categories>
+        <category>数据科学</category>
+      </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>常见机器学习算法sklearn实现demo</title>
     <url>/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0demo/</url>
     <content><![CDATA[<p>导入相关的库</p>
@@ -663,26 +683,6 @@
 
 <h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">problem_2</span>(<span class="params">filename,predictors,target</span>):</span><br><span class="line">    <span class="comment"># write your logic here, model is the NN model</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setup_seed</span>(<span class="params">seed</span>):</span><br><span class="line">        torch.manual_seed(seed)</span><br><span class="line">        torch.cuda.manual_seed_all(seed)</span><br><span class="line">        np.random.seed(seed)</span><br><span class="line">        random.seed(seed)</span><br><span class="line">        torch.backends.cudnn.deterministic = <span class="literal">True</span></span><br><span class="line">    setup_seed(<span class="number">5726</span>)</span><br><span class="line">    df = pd.read_csv(filename)</span><br><span class="line">    train_data = df[predictors]</span><br><span class="line">    label = df[target]</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(train_data, label, test_size=<span class="number">0.3</span>,</span><br><span class="line">                                                        random_state=<span class="number">5726</span>)</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(X_train)</span><br><span class="line">    x_train = PredictorScalerFit.transform(X_train)</span><br><span class="line">    PredictorScaler = StandardScaler()</span><br><span class="line">    PredictorScalerFit = PredictorScaler.fit(X_test)</span><br><span class="line">    x_test = PredictorScalerFit.transform(X_test)</span><br><span class="line">    n_input, n_hidden1, n_hidden2, n_out, learning_rate = <span class="number">11</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0.01</span></span><br><span class="line">    data_x = torch.FloatTensor(x_train)</span><br><span class="line">    y_train = np.array(y_train)</span><br><span class="line">    data_y = torch.FloatTensor(y_train).<span class="built_in">float</span>()</span><br><span class="line"></span><br><span class="line">    model = nn.Sequential(nn.Linear(n_input, n_hidden1), nn.ReLU(),</span><br><span class="line">                          nn.Linear(n_hidden1, n_hidden2), nn.ReLU(),</span><br><span class="line">                          nn.Linear(n_hidden2, n_out), nn.Sigmoid())</span><br><span class="line">    loss_function = nn.MSELoss()</span><br><span class="line">    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)</span><br><span class="line">    losses = []  <span class="comment"># Training Loop</span></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">500</span>):</span><br><span class="line">        pred_y = model(data_x)</span><br><span class="line">        loss = loss_function(pred_y, data_y)</span><br><span class="line">        losses.append(loss.item())</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">    targets = model(torch.FloatTensor(x_test))</span><br><span class="line">    test_recall = metrics.precision_score(np.<span class="built_in">round</span>(targets.detach().numpy()), y_test)</span><br><span class="line">    test_precision = metrics.recall_score(np.<span class="built_in">round</span>(targets.detach().numpy()), y_test)</span><br><span class="line">    model = model._modules</span><br><span class="line">    <span class="keyword">return</span> model, test_precision, test_recall</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>逻辑回归</title>
-    <url>/2022/07/27/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</url>
-    <content><![CDATA[<h1 id="Sigmoid函数"><a href="#Sigmoid函数" class="headerlink" title="Sigmoid函数"></a>Sigmoid函数</h1><p>对于二分类问题，我们期望通过监督学习，输出结果达到二分类的效果，如0代表负向分类，1代表正向分类。因此，所选择的函数的输出范围需要在[0,1]内，而对于线性回归模型，它的输出是离散的，因此我们要把离散的输出限制在连续范围[0,1]内。</p>
-<p>有如下函数<br>$$<br>h(x)&#x3D;g(\theta^{T}x)&#x3D;\frac{1}{1+e^{-\theta^{T}x}}<br>$$</p>
-<p>即<br>$$<br>g(z)&#x3D;\frac{1}{1+e^{-z}}<br>$$<br>其中$\theta^Tx$是线性函数，范围为$[-\infty,\infty]$，$g(z)$将$[-\infty,\infty]$的范围映射到$[0,1]$，通过这种方法，我门可以采用类似回归的方法解决二分类问题，$g(z)$的值被视为分到某一类的概率，即分到1或0类的概率为<br>$$<br>P(y&#x3D;1|x;\theta)&#x3D;h(x)&#x3D;g(\theta^{T}x)\<br>P(y&#x3D;0|x;\theta)&#x3D;1-h(x)&#x3D;1-g(\theta^{T}x)<br>$$<br>将上式可以更简洁地表示为<br>$$<br>P(y|x;\theta)&#x3D;（h(x))^y(1-h(x))^{1-y}<br>$$</p>
-<h1 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h1><p>样本$(x_i,y_i)$满足独立同分布，因此，采用极大似然估计法估计参数$\theta$，首先写出似然函数<br>$$<br>\begin{aligned}<br>{ \max_{\theta}L(\theta)}<br>&amp; &#x3D; \prod_{i&#x3D;1}^mp(y^{(i)}|x^{(i)};\theta)\<br>&amp; &#x3D; \prod_{i&#x3D;1}^m(h(x^{(i)}))^{y^{(i)}}(1-h(x^{(i)}))^{1-y^{(i)}}<br>\end{aligned}<br>$$<br>对似然函数取对数，转换为求和<br>$$<br>l(\theta)&#x3D;logL(\theta)\<br>&#x3D;\sum_{i&#x3D;1}^my^{(i)}logh(x^{(i)})+(1-y^{(i)})log(1-h(x^{(i)}))<br>$$</p>
-<h1 id="梯度上升法求解参数"><a href="#梯度上升法求解参数" class="headerlink" title="梯度上升法求解参数"></a>梯度上升法求解参数</h1><p>与线性回归中估计参数$\theta$的梯度下降方法类似，采用梯度上升方法，来最大化似然函数<br>$$<br>\theta:&#x3D;\theta+\alpha\nabla_{\theta}l(\theta)<br>$$</p>
-<p>$$<br>\begin{aligned}<br>\frac{\partial l(\theta)}{\partial\theta_j}<br>&amp; &#x3D; (y\frac{1}{g(\theta^{T}x)}-(1-y)\frac{1}{1-g(\theta^{T}x)})\frac{\partial g(\theta^{T}x)}{\partial\theta_j} \<br>&amp; &#x3D; (y\frac{1}{g(\theta^{T}x)}-(1-y)\frac{1}{1-g(\theta^{T}x)}) g(\theta^{T}x)(1-g(\theta^{T}x))\frac{\partial \theta^{T}x}{\partial\theta_j}\<br>&amp; &#x3D; (y(1-g(\theta^{T}x))-(1-y)g(\theta^{T}x)) x_j\<br>&amp; &#x3D; (y-h_{\theta}(x))x_j<br>\end{aligned}<br>$$</p>
-<h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><p>逻辑回归的损失函数即是在似然函数前加负号，即将极大化的似然函数转换为求最小值的损失函数。该损失函数又称为二进制交叉熵损失函数（BCE）<br>$$<br>H(\theta)&#x3D;-l(\theta)<br>&#x3D;-[\sum_{i&#x3D;1}^my^{(i)}logh(x^{(i)})+(1-y^{(i)})log(1-h(x^{(i)}))]<br>$$</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
