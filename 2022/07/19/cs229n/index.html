@@ -27,12 +27,10 @@
 <meta property="og:site_name" content="dwxa">
 <meta property="og:description" content="有监督学习，目的是构建一种算法，来完成$ h:x\rightarrow y $的映射，$ x^i $为输入特征，$ y^i $ 为预测类别，${(x^i,y^i);i&#x3D;1…n}$构成训练集。当$ y $ 为连续值时，该问题是一种回归问题，映射$h(x)$为与真实值$y$接近的预测值。最简单的有监督学习的回归问题是线性回归。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://dwxa.github.io/Users/shiyuzhuo/Downloads/Untitled%20Diagram.drawio.png">
 <meta property="article:published_time" content="2022-07-19T09:00:11.000Z">
 <meta property="article:modified_time" content="2023-06-08T16:59:08.022Z">
 <meta property="article:author" content="dwxa">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dwxa.github.io/Users/shiyuzhuo/Downloads/Untitled%20Diagram.drawio.png">
 
 <link rel="canonical" href="https://dwxa.github.io/2022/07/19/cs229n/">
 
@@ -259,10 +257,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>有监督学习，目的是构建一种算法，来完成$ h:x\rightarrow y $的映射，$ x^i $为输入特征，$ y^i $ 为预测类别，${(x^i,y^i);i=1…n}$构成训练集。当$ y $ 为连续值时，该问题是一种回归问题，映射$h(x)$为与真实值$y$接近的预测值。最简单的有监督学习的回归问题是线性回归。</p>
+        <p>有监督学习，目的是构建一种算法，来完成$ h:x\rightarrow y $的映射，$ x^i $为输入特征，$ y^i $ 为预测类别，${(x^i,y^i);i&#x3D;1…n}$构成训练集。当$ y $ 为连续值时，该问题是一种回归问题，映射$h(x)$为与真实值$y$接近的预测值。最简单的有监督学习的回归问题是线性回归。</p>
 <span id="more"></span>
+
 <h1 id="线性回归模型"><a href="#线性回归模型" class="headerlink" title="线性回归模型"></a>线性回归模型</h1><p>  以预测房屋价格来描述一个线性回归问题。以房屋价格数据集为例，数据集包含房屋的大小与价格。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -270,8 +268,7 @@
 <th>价格price</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>2104</td>
 <td>400</td>
 </tr>
@@ -287,43 +284,18 @@
 <td>1416</td>
 <td>232</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>在这一问题中，房屋的价格可以通过房屋的大小进行预测，</p>
-<p> <img src="/Users/shiyuzhuo/Downloads/Untitled Diagram.drawio.png" alt="Untitled Diagram.drawio"><br>其中假设$h(x)$表示为$h(x)=\theta_0+\theta_1x $,，$x$为房屋的大小，$h(x)$为预测得到的房屋价格。当把问题进行补充，将输入特征增加为居住面积与卧室数目，这样输入特征$x$就变为一个二维向量。为简化多维向量的回归方程的表达，$h(x)$可以表示为</p>
-<script type="math/tex; mode=display">
-h(x)=\sum_{j = 0}{n}\theta_jx_j=\theta^Tx</script><h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><p>当预测值$h(x)$越趋进于真实值$y$时，回归方程的预测效果越好，为了度量预测值与真实值之间的距离，采用最小二乘函数$J(\theta)$又称作MSE或L2损失函数。</p>
-<script type="math/tex; mode=display">
-J(\theta) = \frac{1}{2}\sum_{i = 0} ^m(y^i - h_\theta (x^i))^2</script><p>是回归方程达到最优值的方法即为使损失函数最小化。即</p>
-<script type="math/tex; mode=display">
-min_{\theta}J(\theta) = \frac{1}{2}\sum_{i = 0} ^m(y^i - h_\theta (x^i))^2</script><p>下面给出参数$\theta$的数值解法与梯度下降解法</p>
-<h1 id="参数求解"><a href="#参数求解" class="headerlink" title="参数求解"></a>参数求解</h1><p>如果最小二乘函数$J(\theta)$存在全局最小值，那么存在$\hat{\theta}$使得它对于$\theta$的偏导数为0即</p>
-<script type="math/tex; mode=display">
-\nabla_{\theta}J(\hat\theta))=0</script><p>求解过程如下</p>
-<script type="math/tex; mode=display">
-J(\theta) = \frac{1}{2}\sum_{i = 0} ^m(y^i - h_\theta (x^i))^2=\frac{1}{2}\sum_{i = 0} ^m(\theta^Tx^i-y^i)^2</script><p>根据矩阵的计算改写$J(\theta)$</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-J(\theta)
-& = \frac{1}{2}\sum_{i = 0} ^m(\theta^Tx^i-y^i)^T(\theta^Tx^i-y^i) \\
-& = \frac{1}{2}(\theta^Tx^Tx\theta-y\theta^Tx^T-y^Tx\theta+y^Ty)\\
-& = \frac{1}{2}(\theta^Tx^Tx\theta-2\theta^Tx^Ty+y^Ty)
-\end{aligned}</script><script type="math/tex; mode=display">
-\hat{\theta}=argminJ(\theta)</script><p>对$\theta$求偏导，导数为0时为极小值点，令$\frac{\partial J(\theta)}{\partial\theta}=0$求得参数$\theta$的值。</p>
-<script type="math/tex; mode=display">
-\frac{\partial J(\theta)}{\partial\theta}=\frac{1}{2}(2x^Tx\theta-2x^Ty)=0</script><p>参数$\theta$的表达式为</p>
-<script type="math/tex; mode=display">
-\theta=(x^Tx)^{-1}x^Ty</script><h1 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h1><p>对于使得最小二乘损失函数最优化的方法，采用<strong>梯度下降</strong>方法，梯度下降法通过不断在目标函数的梯度方向上修正参数来达到最优解。梯度下降最简单的用法是计算损失函数（数据集中所有样本的损失均值） 关于模型参数的导数（在这里也可以称为梯度），即</p>
-<script type="math/tex; mode=display">
-\theta_j:=\theta_j-\alpha\frac{\partial J(\theta)}{\partial\theta_j}</script><p>$\alpha$为学习率。迭代过程为：1、选取初始值$\theta$   2、在梯度方向上修正$\theta$   3、直到$\theta_j$收敛至局部最优</p>
-<h2 id="梯度下降的推导"><a href="#梯度下降的推导" class="headerlink" title="梯度下降的推导"></a>梯度下降的推导</h2><script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\partial J(\theta)}{\partial\theta_j}
-& = (h_\theta(x)-y) \frac{\partial}{\partial\theta_j}（h_\theta(x)-y) \\
-& = (h_\theta(x)-y) \frac{\partial}{\partial\theta_j}(\sum_{j=0}^n\theta_jx_j-y) \\
-& = (h_\theta(x)-y)x_j
-\end{aligned}</script><h1 id="线性回归的sklearn实现"><a href="#线性回归的sklearn实现" class="headerlink" title="线性回归的sklearn实现"></a>线性回归的sklearn实现</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">data1=pd.read_csv(<span class="string">&#x27;ex1data1.txt&#x27;</span>,header=<span class="literal">None</span>)</span><br><span class="line">data1.head()</span><br><span class="line"></span><br><span class="line">x = data1.iloc[:,<span class="number">0</span>:<span class="number">1</span>]</span><br><span class="line">y = data1.iloc[:,<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">data1.info()</span><br><span class="line">plt.scatter(x,y)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">clf = LinearRegression()</span><br><span class="line">pred = clf.fit(x,y)</span><br><span class="line"><span class="built_in">print</span>(clf.coef_)<span class="comment">#系数</span></span><br><span class="line"><span class="built_in">print</span>(clf.intercept_)<span class="comment">#截距</span></span><br><span class="line">yy = clf.predict(x)</span><br><span class="line">plt.figure(figsize = (<span class="number">20</span>,<span class="number">10</span>))</span><br><span class="line">plt.scatter(x,y,label = <span class="string">&#x27;train_data&#x27;</span>)</span><br><span class="line">plt.plot(x,yy,<span class="string">&#x27;r&#x27;</span>,label = <span class="string">&#x27;linear_regression&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()`</span><br></pre></td></tr></table></figure>
+<p> ![Untitled Diagram.drawio](&#x2F;Users&#x2F;shiyuzhuo&#x2F;Downloads&#x2F;Untitled Diagram.drawio.png)<br>其中假设$h(x)$表示为$h(x)&#x3D;\theta_0+\theta_1x $,，$x$为房屋的大小，$h(x)$为预测得到的房屋价格。当把问题进行补充，将输入特征增加为居住面积与卧室数目，这样输入特征$x$就变为一个二维向量。为简化多维向量的回归方程的表达，$h(x)$可以表示为<br>$$<br>h(x)&#x3D;\sum_{j &#x3D; 0}{n}\theta_jx_j&#x3D;\theta^Tx<br>$$</p>
+<h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><p>当预测值$h(x)$越趋进于真实值$y$时，回归方程的预测效果越好，为了度量预测值与真实值之间的距离，采用最小二乘函数$J(\theta)$又称作MSE或L2损失函数。<br>$$<br>J(\theta) &#x3D; \frac{1}{2}\sum_{i &#x3D; 0} ^m(y^i - h_\theta (x^i))^2<br>$$</p>
+<p>是回归方程达到最优值的方法即为使损失函数最小化。即<br>$$<br>min_{\theta}J(\theta) &#x3D; \frac{1}{2}\sum_{i &#x3D; 0} ^m(y^i - h_\theta (x^i))^2<br>$$<br>下面给出参数$\theta$的数值解法与梯度下降解法</p>
+<h1 id="参数求解"><a href="#参数求解" class="headerlink" title="参数求解"></a>参数求解</h1><p>如果最小二乘函数$J(\theta)$存在全局最小值，那么存在$\hat{\theta}$使得它对于$\theta$的偏导数为0即<br>$$<br>\nabla_{\theta}J(\hat\theta))&#x3D;0<br>$$<br>求解过程如下<br>$$<br>J(\theta) &#x3D; \frac{1}{2}\sum_{i &#x3D; 0} ^m(y^i - h_\theta (x^i))^2&#x3D;\frac{1}{2}\sum_{i &#x3D; 0} ^m(\theta^Tx^i-y^i)^2<br>$$<br>根据矩阵的计算改写$J(\theta)$<br>$$<br>\begin{aligned}<br>J(\theta)<br>&amp; &#x3D; \frac{1}{2}\sum_{i &#x3D; 0} ^m(\theta^Tx^i-y^i)^T(\theta^Tx^i-y^i) \<br>&amp; &#x3D; \frac{1}{2}(\theta^Tx^Tx\theta-y\theta^Tx^T-y^Tx\theta+y^Ty)\<br>&amp; &#x3D; \frac{1}{2}(\theta^Tx^Tx\theta-2\theta^Tx^Ty+y^Ty)<br>\end{aligned}<br>$$</p>
+<p>$$<br>\hat{\theta}&#x3D;argminJ(\theta)<br>$$</p>
+<p>对$\theta$求偏导，导数为0时为极小值点，令$\frac{\partial J(\theta)}{\partial\theta}&#x3D;0$求得参数$\theta$的值。<br>$$<br>\frac{\partial J(\theta)}{\partial\theta}&#x3D;\frac{1}{2}(2x^Tx\theta-2x^Ty)&#x3D;0<br>$$<br>参数$\theta$的表达式为<br>$$<br>\theta&#x3D;(x^Tx)^{-1}x^Ty<br>$$</p>
+<h1 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h1><p>对于使得最小二乘损失函数最优化的方法，采用<strong>梯度下降</strong>方法，梯度下降法通过不断在目标函数的梯度方向上修正参数来达到最优解。梯度下降最简单的用法是计算损失函数（数据集中所有样本的损失均值） 关于模型参数的导数（在这里也可以称为梯度），即<br>$$<br>\theta_j:&#x3D;\theta_j-\alpha\frac{\partial J(\theta)}{\partial\theta_j}<br>$$<br>$\alpha$为学习率。迭代过程为：1、选取初始值$\theta$   2、在梯度方向上修正$\theta$   3、直到$\theta_j$收敛至局部最优</p>
+<h2 id="梯度下降的推导"><a href="#梯度下降的推导" class="headerlink" title="梯度下降的推导"></a>梯度下降的推导</h2><p>$$<br>\begin{aligned}<br>\frac{\partial J(\theta)}{\partial\theta_j}<br>&amp; &#x3D; (h_\theta(x)-y) \frac{\partial}{\partial\theta_j}（h_\theta(x)-y) \<br>&amp; &#x3D; (h_\theta(x)-y) \frac{\partial}{\partial\theta_j}(\sum_{j&#x3D;0}^n\theta_jx_j-y) \<br>&amp; &#x3D; (h_\theta(x)-y)x_j<br>\end{aligned}<br>$$</p>
+<h1 id="线性回归的sklearn实现"><a href="#线性回归的sklearn实现" class="headerlink" title="线性回归的sklearn实现"></a>线性回归的sklearn实现</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">data1=pd.read_csv(<span class="string">&#x27;ex1data1.txt&#x27;</span>,header=<span class="literal">None</span>)</span><br><span class="line">data1.head()</span><br><span class="line"></span><br><span class="line">x = data1.iloc[:,<span class="number">0</span>:<span class="number">1</span>]</span><br><span class="line">y = data1.iloc[:,<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">data1.info()</span><br><span class="line">plt.scatter(x,y)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">clf = LinearRegression()</span><br><span class="line">pred = clf.fit(x,y)</span><br><span class="line"><span class="built_in">print</span>(clf.coef_)<span class="comment">#系数</span></span><br><span class="line"><span class="built_in">print</span>(clf.intercept_)<span class="comment">#截距</span></span><br><span class="line">yy = clf.predict(x)</span><br><span class="line">plt.figure(figsize = (<span class="number">20</span>,<span class="number">10</span>))</span><br><span class="line">plt.scatter(x,y,label = <span class="string">&#x27;train_data&#x27;</span>)</span><br><span class="line">plt.plot(x,yy,<span class="string">&#x27;r&#x27;</span>,label = <span class="string">&#x27;linear_regression&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()`</span><br></pre></td></tr></table></figure>
+
 <h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1>
     </div>
 
