@@ -252,6 +252,42 @@
 ]]></content>
   </entry>
   <entry>
+    <title>AB测试</title>
+    <url>/2023/06/12/abtest/</url>
+    <content><![CDATA[<p>AB测试是为明确某个问题，制作两个（A&#x2F;B）或多个（A&#x2F;B&#x2F;n）版本，在同一时间维度，分别让组成成分相同（相似）的访客群组（目标人群）随机的访问这些版本，收集各群组的用户体验数据和业务数据；最后分析、评估出最好版本，正式采用。</p>
+<span id="more"></span>
+
+<h1 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h1><h2 id="提出需求"><a href="#提出需求" class="headerlink" title="提出需求"></a>提出需求</h2><p>设置实验组，实验组新算法A，对照组原算法B；配置uv分桶，各50%流量，<strong>确定分析目标</strong></p>
+<h2 id="实验开发"><a href="#实验开发" class="headerlink" title="实验开发"></a>实验开发</h2><p>数据埋点；指标集成；用户分流</p>
+<h2 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h2><p>检查错误；确定置信区间</p>
+<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><p>1、时间一致性；</p>
+<p>2、数据分布的一致性；</p>
+<p>3、统计显著的结果才可以引导决策；</p>
+<p>4、实验分组设计上（流量分布要均匀）：</p>
+<p>算法对用户的偏差没有反映到实验分桶上，会放大算法之间效果的差距，从而产生辛普森悖论；</p>
+<p><img src="/2023/06/12/abtest/img1.png"></p>
+<p><img src="/2023/06/12/abtest/img2.png"></p>
+<p> 5、置信</p>
+<p> 要获得一个可信的试验结果需要一定的流量（样本）和时间，如果流量（样本）太小或者分不均匀，试验结果会存在偶然性，可能无法得出可信的结果；试验运行时间太短的话同理；</p>
+<p>6、时间</p>
+<p>实验周期中也要避免外部因素的影响，尽量在平稳时期进行，减少外部因素的干扰；有时候为了保证实验效果的置信，防止小流量分布不均匀，可以在试验过程中，逐步增大流量分配，同时监控关键指标的数据走势，从而得到置信的结论；</p>
+<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>对总体的参数提出假设，利用样本的信息去判断假设是否成立</p>
+<p>原假设：新版本可以提高点击率；备择假设：新版本不能提高点击率</p>
+<p><strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
+<p><img src="/2023/06/12/abtest/img3.png"></p>
+<h2 id="二类错误"><a href="#二类错误" class="headerlink" title="二类错误"></a>二类错误</h2><p>一类错误：弃真，拒绝原假设</p>
+<p>二类错误：取伪，</p>
+<p>弃真：我的实验改动实际没有用，但我认为它有用</p>
+<p>纳伪：我的实验改动实际有用，但我认为它没有用</p>
+<p>在统计学中，我们<strong>用显著性水平（α）来衡量犯第一类错误的概率</strong>，统计功效β来衡量犯第二类错误的概率</p>
+<p>检验统计量：<strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
+<p><img src="/2023/06/12/abtest/img4.png"></p>
+]]></content>
+      <categories>
+        <category>数据分析</category>
+      </categories>
+  </entry>
+  <entry>
     <title></title>
     <url>/2022/12/12/cnn/</url>
     <content><![CDATA[]]></content>
@@ -451,61 +487,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>AB测试</title>
-    <url>/2023/06/12/abtest/</url>
-    <content><![CDATA[<p>AB测试是为明确某个问题，制作两个（A&#x2F;B）或多个（A&#x2F;B&#x2F;n）版本，在同一时间维度，分别让组成成分相同（相似）的访客群组（目标人群）随机的访问这些版本，收集各群组的用户体验数据和业务数据；最后分析、评估出最好版本，正式采用。</p>
-<span id="more"></span>
-
-<h1 id="实验流程"><a href="#实验流程" class="headerlink" title="实验流程"></a>实验流程</h1><h2 id="提出需求"><a href="#提出需求" class="headerlink" title="提出需求"></a>提出需求</h2><p>设置实验组，实验组新算法A，对照组原算法B；配置uv分桶，各50%流量，<strong>确定分析目标</strong></p>
-<h2 id="实验开发"><a href="#实验开发" class="headerlink" title="实验开发"></a>实验开发</h2><p>数据埋点；指标集成；用户分流</p>
-<h2 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h2><p>检查错误；确定置信区间</p>
-<h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><p>1、时间一致性；</p>
-<p>2、数据分布的一致性；</p>
-<p>3、统计显著的结果才可以引导决策；</p>
-<p>4、实验分组设计上（流量分布要均匀）：</p>
-<p>算法对用户的偏差没有反映到实验分桶上，会放大算法之间效果的差距，从而产生辛普森悖论；</p>
-<p><img src="/2023/06/12/abtest/img1.png"></p>
-<p><img src="/2023/06/12/abtest/img2.png"></p>
-<p> 5、置信</p>
-<p> 要获得一个可信的试验结果需要一定的流量（样本）和时间，如果流量（样本）太小或者分不均匀，试验结果会存在偶然性，可能无法得出可信的结果；试验运行时间太短的话同理；</p>
-<p>6、时间</p>
-<p>实验周期中也要避免外部因素的影响，尽量在平稳时期进行，减少外部因素的干扰；有时候为了保证实验效果的置信，防止小流量分布不均匀，可以在试验过程中，逐步增大流量分配，同时监控关键指标的数据走势，从而得到置信的结论；</p>
-<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>对总体的参数提出假设，利用样本的信息去判断假设是否成立</p>
-<p>原假设：新版本可以提高点击率；备择假设：新版本不能提高点击率</p>
-<p><strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
-<p><img src="/2023/06/12/abtest/img3.png"></p>
-<h2 id="二类错误"><a href="#二类错误" class="headerlink" title="二类错误"></a>二类错误</h2><p>一类错误：弃真，拒绝原假设</p>
-<p>二类错误：取伪，</p>
-<p>弃真：我的实验改动实际没有用，但我认为它有用</p>
-<p>纳伪：我的实验改动实际有用，但我认为它没有用</p>
-<p>在统计学中，我们<strong>用显著性水平（α）来衡量犯第一类错误的概率</strong>，统计功效β来衡量犯第二类错误的概率</p>
-<p>检验统计量：<strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
-<p><img src="/2023/06/12/abtest/img4.png"></p>
-]]></content>
-      <categories>
-        <category>数据分析</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>假设检验</title>
-    <url>/2022/07/20/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</url>
-    <content><![CDATA[<h2 id="参数估计与假设检验"><a href="#参数估计与假设检验" class="headerlink" title="参数估计与假设检验"></a>参数估计与假设检验</h2><p>参数估计讨论的是用样本估计总体参数的方法，总体参数μ在估计前是未知的。<br>而在假设检验中，则是先对μ的值提出一个假设，然后利用样本信息去检验这个假设是否成立。</p>
-<span id="more"></span>
-
-<h2 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h2><p>假设检验：假设就是对从总体参数(均值、比例等)的具体数值所作的陈述，比如，我认为配方一比配方二的效果要好。<strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
-<h2 id="显著性水平"><a href="#显著性水平" class="headerlink" title="显著性水平"></a>显著性水平</h2><p><strong>显著性水平是一个概率值，原假设为真时，拒绝原假设的概率，表示为α，常取值为0.05、0.01、0.10。</strong>一个公司招聘，本来准备招聘100个人，公司希望只有5%的人是混水摸鱼招聘进来，所以可能会有5个人混进来，所谓显著性水平α，就是你允许有多少比例混水摸鱼的能通过测试。</p>
-<h2 id="检验统计量"><a href="#检验统计量" class="headerlink" title="检验统计量"></a>检验统计量</h2><p><strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
-<h2 id="假设检验的两种错误"><a href="#假设检验的两种错误" class="headerlink" title="假设检验的两种错误"></a>假设检验的两种错误</h2><h3 id="弃真"><a href="#弃真" class="headerlink" title="弃真"></a>弃真</h3><p><em><strong>类型 I 错误(弃真)，如原假设为真，但否定它，则会犯类型 I 错误。犯类型 I 错误的概率为 α（即您为假设检验设置的显著性水平）。</strong></em>α 为 0.05 表明，当您否定原假设时，您愿意接受 5% 的犯错概率。</p>
-<h3 id="取伪"><a href="#取伪" class="headerlink" title="取伪"></a>取伪</h3><p><em><strong>原假设实际上是不正确的，但是我们却做出了接受原假设的决定，此类错误称为第二类错误</strong></em></p>
-<h2 id="单双侧检验"><a href="#单双侧检验" class="headerlink" title="单双侧检验"></a>单双侧检验</h2><p>当假设关键词有不得少于&#x2F;低于的时候用左侧检验，比如灯泡的使用寿命不得少于&#x2F;低于700小时时；当假设关键词有不得多于&#x2F;高于的时候用右侧检验，比如次品率不得多于&#x2F;高于5%时。双侧检验指按分布两端计算显著性水平概率的检验，应用于理论上不能确定两个总体一个一定比另一个大或小的假设检验。</p>
-<h2 id="假设检验结果"><a href="#假设检验结果" class="headerlink" title="假设检验结果"></a>假设检验结果</h2><p>一般假设检验写作<em>H0：μ1&#x3D;μ2</em>。<br>单侧，若<em>p值&gt;α</em>,不拒绝H0，若p值&lt;α,拒绝$H_0$；双侧，若<em>p值&gt;1&#x2F;2α</em>,不拒绝$H_0$，若<em>p值&lt;1&#x2F;2α</em>,拒绝$H_0$<br>假设检验方法：z检验，t检验，卡方检验<br>两独立样本t检验(ab实验背后原理)</p>
-<h2 id="Q-Q图"><a href="#Q-Q图" class="headerlink" title="Q-Q图"></a>Q-Q图</h2><p>Q-Q图鉴别样本数据是否近似正态分布，样本数据近似落在一条直线附近，则近似于正态分布，直线斜率为<em><strong>标准差</strong></em>，截距为<em><strong>均值</strong></em></p>
-]]></content>
-      <categories>
-        <category>统计学原理</category>
-      </categories>
-  </entry>
-  <entry>
     <title>raft协议理论</title>
     <url>/2023/02/07/raft/</url>
     <content><![CDATA[<p>raft是一种管理日志复制的共识算法，其比paxos更加易于理解而且为构建实用的系统提供了更好的基础。</p>
@@ -542,6 +523,41 @@
 <p>log replication</p>
 <p>9 评估raft</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>假设检验</title>
+    <url>/2022/07/20/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</url>
+    <content><![CDATA[<h2 id="参数估计与假设检验"><a href="#参数估计与假设检验" class="headerlink" title="参数估计与假设检验"></a>参数估计与假设检验</h2><p>参数估计讨论的是用样本估计总体参数的方法，总体参数μ在估计前是未知的。<br>而在假设检验中，则是先对μ的值提出一个假设，然后利用样本信息去检验这个假设是否成立。</p>
+<span id="more"></span>
+
+<h2 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h2><p>假设检验：假设就是对从总体参数(均值、比例等)的具体数值所作的陈述，比如，我认为配方一比配方二的效果要好。<strong>而假设检验就是先对总体的参数提出某种假设，然后利用样本的信息判断假设是否成立的过程</strong>，比如上面的假设信息我该接受还是拒绝。</p>
+<h2 id="显著性水平"><a href="#显著性水平" class="headerlink" title="显著性水平"></a>显著性水平</h2><p><strong>显著性水平是一个概率值，原假设为真时，拒绝原假设的概率，表示为α，常取值为0.05、0.01、0.10。</strong>一个公司招聘，本来准备招聘100个人，公司希望只有5%的人是混水摸鱼招聘进来，所以可能会有5个人混进来，所谓显著性水平α，就是你允许有多少比例混水摸鱼的能通过测试。</p>
+<h2 id="检验统计量"><a href="#检验统计量" class="headerlink" title="检验统计量"></a>检验统计量</h2><p><strong>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较</strong>，得出是否拒绝原假设的结论。</p>
+<h2 id="假设检验的两种错误"><a href="#假设检验的两种错误" class="headerlink" title="假设检验的两种错误"></a>假设检验的两种错误</h2><h3 id="弃真"><a href="#弃真" class="headerlink" title="弃真"></a>弃真</h3><p><em><strong>类型 I 错误(弃真)，如原假设为真，但否定它，则会犯类型 I 错误。犯类型 I 错误的概率为 α（即您为假设检验设置的显著性水平）。</strong></em>α 为 0.05 表明，当您否定原假设时，您愿意接受 5% 的犯错概率。</p>
+<h3 id="取伪"><a href="#取伪" class="headerlink" title="取伪"></a>取伪</h3><p><em><strong>原假设实际上是不正确的，但是我们却做出了接受原假设的决定，此类错误称为第二类错误</strong></em></p>
+<h2 id="单双侧检验"><a href="#单双侧检验" class="headerlink" title="单双侧检验"></a>单双侧检验</h2><p>当假设关键词有不得少于&#x2F;低于的时候用左侧检验，比如灯泡的使用寿命不得少于&#x2F;低于700小时时；当假设关键词有不得多于&#x2F;高于的时候用右侧检验，比如次品率不得多于&#x2F;高于5%时。双侧检验指按分布两端计算显著性水平概率的检验，应用于理论上不能确定两个总体一个一定比另一个大或小的假设检验。</p>
+<h2 id="假设检验结果"><a href="#假设检验结果" class="headerlink" title="假设检验结果"></a>假设检验结果</h2><p>一般假设检验写作<em>H0：μ1&#x3D;μ2</em>。<br>单侧，若<em>p值&gt;α</em>,不拒绝H0，若p值&lt;α,拒绝$H_0$；双侧，若<em>p值&gt;1&#x2F;2α</em>,不拒绝$H_0$，若<em>p值&lt;1&#x2F;2α</em>,拒绝$H_0$<br>假设检验方法：z检验，t检验，卡方检验<br>两独立样本t检验(ab实验背后原理)</p>
+<h2 id="Q-Q图"><a href="#Q-Q图" class="headerlink" title="Q-Q图"></a>Q-Q图</h2><p>Q-Q图鉴别样本数据是否近似正态分布，样本数据近似落在一条直线附近，则近似于正态分布，直线斜率为<em><strong>标准差</strong></em>，截距为<em><strong>均值</strong></em></p>
+]]></content>
+      <categories>
+        <category>统计学原理</category>
+      </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>数据探索性分析（EDA）</title>
+    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
+    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
+<span id="more"></span>
+
+<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
+      <categories>
+        <category>数据科学</category>
+      </categories>
   </entry>
   <entry>
     <title>数据集市相关概念（来自aws）</title>
@@ -629,17 +645,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>数据探索性分析（EDA）</title>
-    <url>/2022/08/30/%E6%95%B0%E6%8D%AEEDA/</url>
-    <content><![CDATA[<p>数据探索性分析往往是我们在进行数据建模的第一步，数据的质量也决定着模型效果的上限，因此数据探索性分析也是解决数据科学问题中的重要一环，下面介绍数据探索性分析的简要流程及几种常见处理方法。以阿里云天池学习赛工业蒸汽数据集为例。</p>
-<span id="more"></span>
-
-<h1 id="数据信息探索（缺失值，异常值，数据分布）"><a href="#数据信息探索（缺失值，异常值，数据分布）" class="headerlink" title="数据信息探索（缺失值，异常值，数据分布）"></a>数据信息探索（缺失值，异常值，数据分布）</h1><h2 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h2><h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><h2 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h2><h1 id="特征相关性"><a href="#特征相关性" class="headerlink" title="特征相关性"></a>特征相关性</h1><h1 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h1><h1 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h1><h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><h2 id="最大最小归一化"><a href="#最大最小归一化" class="headerlink" title="最大最小归一化"></a>最大最小归一化</h2><h2 id="Z-Score归一化"><a href="#Z-Score归一化" class="headerlink" title="Z-Score归一化"></a>Z-Score归一化</h2>]]></content>
-      <categories>
-        <category>数据科学</category>
-      </categories>
-  </entry>
-  <entry>
     <title>常见机器学习算法sklearn实现demo</title>
     <url>/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0demo/</url>
     <content><![CDATA[<p>导入相关的库</p>
@@ -666,11 +671,6 @@
   <entry>
     <title></title>
     <url>/2022/10/29/%E6%A0%91%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/12/12/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
